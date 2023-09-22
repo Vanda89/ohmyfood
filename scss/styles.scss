@@ -1,0 +1,26 @@
+// styles.scss (Fichier principal)
+
+// Reset default browser styles
+@import url('https://cdnjs.cloudflare.com/ajax/libs/reseter.css/1.0.8/src/scss/reseter.scss');
+
+// Global fonts style
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap');
+
+// Import variables file
+@import 'variables';
+
+// Import mixins file
+@import 'mixins';
+
+// header.scss (specific styles of the header)
+@import 'header';
+
+// footer.scss (specific styles of the footer)
+@import 'footer';
+
+// home.scss (specific styles of the home page)
+@import 'home';
+
+// menu.scss (specific styles for all menu pages)
+@import 'menu';
