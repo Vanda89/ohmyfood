@@ -1,0 +1,35 @@
+// footer.scss
+
+footer {
+  padding: $p-footer;
+  background-color: $grey-1;
+  color: $base-color;
+
+  h3 {
+    font-family: $logo-font-family;
+    font-size: $h3-font-size;
+    font-weight: $medium-font-weight;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-7;
+    list-style: none;
+    li {
+      a {
+        display: flex;
+        gap: $gap-6;
+
+        color: $base-color;
+
+        i {
+          display: flex;
+          width: 11.918px;
+          height: 13px;
+          font-size: $xs-font-size;
+        }
+      }
+    }
+  }
+}

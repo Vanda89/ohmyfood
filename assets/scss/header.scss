@@ -1,0 +1,24 @@
+//header.scss
+
+header {
+  .logo-container {
+    @include center-element;
+    height: 63px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+
+    .logo {
+      font-family: $logo-font-family;
+      font-size: $logo-font-size;
+    }
+  }
+
+  .location {
+    @include center-element;
+    height: 50px;
+    gap: $gap-4;
+    font-family: $base-font-family;
+    font-weight: $medium-font-weight;
+    color: $grey-1;
+    background-color: $grey-2;
+  }
+}

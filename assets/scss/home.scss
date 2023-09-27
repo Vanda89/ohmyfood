@@ -1,0 +1,55 @@
+// home.scss (Page d'accueil)
+
+// header.scss (specific styles of the header)
+@import "header";
+
+main {
+  font-family: $base-font-family;
+
+  section {
+    width: 100%;
+  }
+}
+
+.app-introduction {
+  @include center-element;
+  flex-direction: column;
+  padding: $p-1;
+  text-align: center;
+  background-color: $grey-bg;
+
+  h2 {
+    padding: 12px 24px;
+  }
+
+  p {
+    font-size: $l-font-size;
+    font-weight: $light-font-weight;
+    margin-bottom: $m-1;
+  }
+}
+
+.app-steps {
+  @include column;
+  gap: $gap-2;
+  padding: $p-section;
+
+  ul {
+    @include column;
+    gap: $gap-2;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.app-restaurants {
+  @include column;
+  gap: $gap-2;
+  padding: $p-section;
+  background: $grey-bg;
+
+  .restaurants-card-container {
+    @include column;
+    gap: $gap-3;
+  }
+}

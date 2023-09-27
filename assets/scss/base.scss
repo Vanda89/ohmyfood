@@ -1,0 +1,22 @@
+// base.scss
+* {
+  margin: 0;
+}
+
+html {
+  font-size: $base-font-size;
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    color: $base-font;
+    overflow-x: hidden;
+  }
+}
+
+a {
+  color: $base-font;
+  text-decoration: none;
+}
