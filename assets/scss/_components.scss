@@ -1,15 +1,23 @@
 //components.scss
 
-// button
-button {
+// General styles
+
+// button for the home page section app-introduction and for the menu pages form
+.btn {
   @include center-element;
-  width: 218px;
   height: 50px;
   margin-bottom: $m-1;
-  border-radius: 24px;
   background: $button-gradient;
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  @include box-shadow-btn;
   border: none;
+  border-radius: $border-radius-l;
+
+  &.btn-large {
+    width: 218px;
+  }
+  &.btn-medium {
+    width: 186px;
+  }
 
   a {
     text-decoration: none;
@@ -20,114 +28,36 @@ button {
   }
 }
 
-// card step home
-.step {
-  position: relative;
+.card-body {
   display: flex;
   align-items: center;
-  height: 73px;
-  margin-left: 12px;
-  padding: 24px 36px;
-  border-radius: 20px;
-  background: $base-color;
-  @include box-shadow-card;
-  span {
-    position: absolute;
-    left: -12px;
-    @include center-element;
-    width: 24px;
-    height: 24px;
-    font-size: $xs-font-size;
-    background-color: $purple;
-    border-radius: 50%;
-    color: $base-color;
-  }
-  .step-content {
-    display: flex;
-    gap: $gap-2;
-
-    i {
-      font-size: $l-font-size;
-      color: $grey-3;
-    }
-    p {
-      font-weight: 500;
-    }
-  }
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+  gap: $gap-8;
 }
 
-// card restaurant home
-.restaurant-card {
-  @include column;
-  a {
-    @include column;
-    gap: 16px;
-    border-radius: 15px;
-    background-color: $base-color;
-
-    .card-img {
-      position: relative;
-      height: 174px;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      overflow: hidden;
-
-      img {
-        object-fit: cover;
-        height: 174px;
-        width: 100%;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-      }
-
-      span {
-        position: absolute;
-        @include center-element;
-        width: 80px;
-        height: 29px;
-        top: 12px;
-        right: 12px;
-        background-color: $green;
-        color: $green-font;
-        border-radius: 2px;
-      }
-    }
-    .card-body {
-      display: flex;
-      align-items: center;
-      padding-bottom: 13px;
-      height: 61px;
-      .card-header {
-        padding: 0 13px;
-        width: 80%;
-
-        p {
-          font-size: $m-font-size;
-        }
-      }
-    }
-    .card-icons {
-      display: flex;
-      justify-content: center;
-      width: 20%;
-    }
-  }
-}
-
-// purple heart icons
+// heart icons
 .favorites-icons {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  height: 100%;
+
   > * {
     font-size: 21px;
   }
+  // relative and absolute position to put the full heart on the empty heart
   .empty-heart {
-    position: absolute;
+    position: relative;
   }
   .full-heart {
-    position: relative;
+    position: absolute;
     background: $icon-gradient;
+    color: transparent;
+    // added background-clip and text-fill-color properties to have an icon with a gradient background
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
     -webkit-text-fill-color: transparent;
   }
 }

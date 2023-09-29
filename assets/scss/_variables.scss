@@ -2,10 +2,10 @@
 
 // Typography
 $base-font-family: "Roboto", sans-serif;
-$logo-font-family: "Shrikhand", cursive;
+$title-font-family: "Shrikhand", cursive;
 
 $base-font-weight: 400;
-$light-font-weight: 300;
+$thin-font-weight: 300;
 $medium-font-weight: 500;
 $bold-font-weight: 700;
 
@@ -29,10 +29,10 @@ $grey-1: #353535;
 $grey-2: #eaeaea;
 $grey-3: #7e7e7e;
 $grey-bg: #f6f6f6;
-$purple: #9356dc;
-$pink: #ff79da;
+$primary: #9356dc;
+$secondary: #ff79da;
 $green-font: #008766;
-$green: #99e2d0;
+$tertiary: #99e2d0;
 $button-gradient: linear-gradient(355deg, #9356dc -5.2%, #ff79da 110.74%);
 $icon-gradient: linear-gradient(to bottom, #9356dc -5.2%, #ff79da 110.74%);
 
@@ -56,13 +56,16 @@ $m-4: 8px;
 $p-1: 30px;
 $p-2: 17px;
 $p-3: 15px;
-$p-4: 10px;
+$p-4: 13px;
+$p-5: 10px;
 
 $p-logo: 14px 89px;
-
-$p-l-btn: 18px 13px;
-$p-m-btn: 48px 16px;
 
 $p-section: 48px 20px 68px 20px;
 
 $p-footer: 22px 25px;
+
+// Border-radius
+$border-radius-l: 25px;
+$border-radius-m: 20px;
+$border-radius-s: 15px;

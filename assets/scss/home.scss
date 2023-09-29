@@ -1,16 +1,5 @@
 // home.scss (Page d'accueil)
 
-// header.scss (specific styles of the header)
-@import "header";
-
-main {
-  font-family: $base-font-family;
-
-  section {
-    width: 100%;
-  }
-}
-
 .app-introduction {
   @include center-element;
   flex-direction: column;
@@ -20,11 +9,12 @@ main {
 
   h2 {
     padding: 12px 24px;
+    font-size: $h2-font-size;
   }
 
   p {
     font-size: $l-font-size;
-    font-weight: $light-font-weight;
+    font-weight: $thin-font-weight;
     margin-bottom: $m-1;
   }
 }
@@ -42,6 +32,44 @@ main {
   }
 }
 
+// relative and absolute position to put the element "number" on the step card
+.step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 73px;
+  margin-left: 12px;
+  padding: 24px 36px;
+  border-radius: $border-radius-m;
+  background: $base-color;
+  @include box-shadow-card;
+
+  // element "number"
+  span {
+    position: absolute;
+    left: -12px;
+    @include center-element;
+    width: 24px;
+    height: 24px;
+    font-size: $xs-font-size;
+    background-color: $primary;
+    border-radius: 50%;
+    color: $base-color;
+  }
+
+  .step-content {
+    display: flex;
+    gap: $gap-2;
+    i {
+      font-size: $l-font-size;
+      color: $grey-3;
+    }
+    p {
+      font-weight: 500;
+    }
+  }
+}
+
 .app-restaurants {
   @include column;
   gap: $gap-2;
@@ -51,5 +79,59 @@ main {
   .restaurants-card-container {
     @include column;
     gap: $gap-3;
+  }
+}
+
+.restaurant-card {
+  @include column;
+  @include box-shadow-card;
+  border-radius: $border-radius-s;
+  a {
+    @include column;
+    border-radius: $border-radius-s;
+    background-color: $base-color;
+  }
+}
+
+// relative and absolute position to put the card "Nouveau" on the restaurant card
+.card-img {
+  position: relative;
+  height: 170px;
+  border-top-left-radius: $border-radius-s;
+  border-top-right-radius: $border-radius-s;
+  overflow: hidden;
+  // image adaptation in relation to its parent while preserving its ratio with object-fit: cover
+  img {
+    object-fit: cover;
+    object-position: bottom;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: $border-radius-s;
+    border-top-right-radius: $border-radius-s;
+  }
+  // span "Nouveau"
+  span {
+    position: absolute;
+    @include center-element;
+    width: 80px;
+    height: 29px;
+    top: 12px;
+    right: 12px;
+    background-color: $tertiary;
+    color: $green-font;
+    border-radius: 2px;
+  }
+}
+
+.card-header {
+  @include column;
+  height: 100%;
+  width: 80%;
+  gap: $gap-8;
+  h3 {
+    font-size: $h3-font-size;
+  }
+  p {
+    font-size: $m-font-size;
   }
 }
