@@ -1,0 +1,39 @@
+// buttons.scss
+
+// Import typography file
+@import "../base/typography";
+
+// Import variables file
+@import "../utils/variables";
+
+// Import mixins file
+@import "../utils/mixins";
+
+// button for the home page section app-introduction and for the menu pages form
+.btn {
+  @include center-element;
+  height: 50px;
+  margin-bottom: 27px;
+  background: $button-gradient;
+  @include box-shadow-btn;
+  border: none;
+  border-radius: $border-radius-l;
+
+  // Home page
+  &.btn-large {
+    width: 218px;
+  }
+
+  // Menu page
+  &.btn-medium {
+    width: 186px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $medium-font-weight;
+  }
+}

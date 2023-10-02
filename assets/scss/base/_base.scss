@@ -1,10 +1,13 @@
 // base.scss
 
+// Import typography file
+@import "../base/typography";
+
 // Import variables file
-@import "./_variables";
+@import "../utils/variables";
 
 // Import mixins file
-@import "./_mixins";
+@import "../utils/mixins";
 
 * {
   margin: 0;
@@ -16,8 +19,7 @@ html {
   overflow-x: hidden;
 
   body {
-    display: flex;
-    flex-direction: column;
+    @include column;
     justify-content: center;
     min-width: 320px;
     width: 100%;

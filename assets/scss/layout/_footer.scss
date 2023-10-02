@@ -1,10 +1,13 @@
 // footer.scss
 
+// Import typography file
+@import "../base/typography";
+
 // Import variables file
-@import "./_variables";
+@import "../utils/variables";
 
 // Import mixins file
-@import "./_mixins";
+@import "../utils/mixins";
 
 footer {
   padding: $p-footer;

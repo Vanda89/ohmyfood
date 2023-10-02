@@ -1,0 +1,34 @@
+// styles.scss (Fichier principal)
+
+// Import a css reseter : normalize.scss
+@import "./base/reseter";
+
+// Import typography file
+@import "./base/typography";
+
+// Import variables file
+@import "./utils/variables";
+
+// Import mixins file
+@import "./utils/mixins";
+
+// Import buttons component file
+@import "./components/buttons";
+
+// Import icons component file
+@import "./components/icons";
+
+// Import base style file
+@import "./base/base";
+
+// header.scss (specific styles of the header)
+@import "./layout/header";
+
+// footer.scss (specific styles of the footer)
+@import "./layout/footer";
+
+// home.scss (specific styles of the home page)
+@import "./pages/home";
+
+// menu.scss (specific styles for all menu pages)
+@import "./pages/menu";

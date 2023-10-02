@@ -1,32 +1,13 @@
-//components.scss
+// icons.scss
 
-// General styles
+// Import typography file
+@import "../base/typography";
 
-// button for the home page section app-introduction and for the menu pages form
-.btn {
-  @include center-element;
-  height: 50px;
-  margin-bottom: 27px;
-  background: $button-gradient;
-  @include box-shadow-btn;
-  border: none;
-  border-radius: $border-radius-l;
+// Import variables file
+@import "../utils/variables";
 
-  &.btn-large {
-    width: 218px;
-  }
-  &.btn-medium {
-    width: 186px;
-  }
-
-  a {
-    text-decoration: none;
-    color: white;
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    font-weight: $medium-font-weight;
-  }
-}
+// Import mixins file
+@import "../utils/mixins";
 
 // heart icons
 .favorites-icons {
@@ -38,10 +19,12 @@
   > * {
     font-size: 21px;
   }
+
   // relative and absolute position to put the full heart on the empty heart
   .empty-heart {
     position: relative;
   }
+
   .full-heart {
     position: absolute;
     background: $icon-gradient;
