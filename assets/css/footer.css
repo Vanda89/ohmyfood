@@ -1,17 +1,32 @@
-/* Error: Undefined variable.
- *   ,
- * 4 |   padding: $p-footer;
- *   |            ^^^^^^^^^
- *   '
- *   scss\footer.scss 4:12  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 4 \2502    padding: $p-footer;\d\a   \2502             ^^^^^^^^^\a   \2575 \a   scss\\footer.scss 4:12  root stylesheet";
+footer {
+  padding: 22px 25px;
+  background-color: #353535;
+  color: #fff;
 }
+footer h3 {
+  font-family: "Shrikhand", cursive;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+footer ul {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  list-style: none;
+}
+footer ul li a {
+  display: flex;
+  gap: 12px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+footer ul li a i {
+  display: flex;
+  width: 11.918px;
+  height: 13px;
+  font-size: 0.875rem;
+}
+
+/*# sourceMappingURL=footer.css.map */

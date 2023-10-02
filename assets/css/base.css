@@ -1,17 +1,36 @@
-/* Error: Undefined variable.
- *   ,
- * 7 |   font-size: $base-font-size;
- *   |              ^^^^^^^^^^^^^^^
- *   '
- *   scss\base.scss 7:14  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 7 \2502    font-size: $base-font-size;\d\a   \2502               ^^^^^^^^^^^^^^^\a   \2575 \a   scss\\base.scss 7:14  root stylesheet";
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
+
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+html body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 320px;
+  width: 100%;
+  color: #000;
+  overflow-x: hidden;
+}
+
+main {
+  font-family: "Roboto", sans-serif;
+}
+main section {
+  width: 100%;
+}
+
+h1 {
+  margin: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=base.css.map */
