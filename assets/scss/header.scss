@@ -1,5 +1,11 @@
 //header.scss
 
+// Import variables file
+@import "./_variables";
+
+// Import mixins file
+@import "./_mixins";
+
 header {
   position: relative;
   .logo-container {

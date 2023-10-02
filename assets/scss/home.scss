@@ -1,5 +1,11 @@
 // home.scss (Page d'accueil)
 
+// Import variables file
+@import "./_variables";
+
+// Import mixins file
+@import "./_mixins";
+
 .app-introduction {
   @include center-element;
   flex-direction: column;
@@ -60,7 +66,11 @@
   .step-content {
     display: flex;
     gap: $gap-2;
+    height: 100%;
+    align-items: center;
     i {
+      align-self: flex-start;
+      line-height: 1.15;
       font-size: $l-font-size;
       color: $grey-3;
     }
@@ -97,6 +107,7 @@
 .card-img {
   position: relative;
   height: 170px;
+  background-color: $grey-2;
   border-top-left-radius: $border-radius-s;
   border-top-right-radius: $border-radius-s;
   overflow: hidden;
@@ -121,6 +132,15 @@
     color: $green-font;
     border-radius: 2px;
   }
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: $p-3;
+  gap: $gap-8;
 }
 
 .card-header {

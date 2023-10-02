@@ -1,4 +1,11 @@
 // base.scss
+
+// Import variables file
+@import "./_variables";
+
+// Import mixins file
+@import "./_mixins";
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -6,6 +13,7 @@
 
 html {
   font-size: $base-font-size;
+  overflow-x: hidden;
 
   body {
     display: flex;
@@ -24,6 +32,10 @@ main {
   section {
     width: 100%;
   }
+}
+
+h1 {
+  margin: 0;
 }
 
 a {

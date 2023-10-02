@@ -6,7 +6,7 @@
 .btn {
   @include center-element;
   height: 50px;
-  margin-bottom: $m-1;
+  margin-bottom: 27px;
   background: $button-gradient;
   @include box-shadow-btn;
   border: none;
@@ -26,15 +26,6 @@
     font-size: $base-font-size;
     font-weight: $medium-font-weight;
   }
-}
-
-.card-body {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 15px;
-  gap: $gap-8;
 }
 
 // heart icons

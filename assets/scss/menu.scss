@@ -1,5 +1,11 @@
 // menu.scss
 
+// Import variables file
+@import "./_variables";
+
+// Import mixins file
+@import "./_mixins";
+
 .menu {
   font-family: $base-font-family;
 
@@ -15,33 +21,38 @@
   }
 }
 
+// Restaurant photo adjustment in background
 .menu-img-container {
-  /* Styles communs à toutes les pages */
   width: 100%;
-  height: 100vh; /* Hauteur à 100% de la vue */
+  height: 60vh;
+  background-color: $grey-2;
   background-size: cover;
   background-position: center;
+
+  // Hiding the original image
   img {
-    display: none; /* Masquez l'image originale */
+    display: none;
   }
 }
 
+// Replacement by the image placed in the background of the page content
 .img-la-palette-du-gout {
-  background-image: url("../pictures/restaurants/la-palette-du-gout.jpg"); /* Image pour la page 1 */
+  background-image: url("../pictures/restaurants/la-palette-du-gout.jpg");
 }
 
 .img-le-delice-des-sens {
-  background-image: url("../pictures/restaurants/le-delice-des-sens.jpg"); /* Image pour la page 2 */
+  background-image: url("../pictures/restaurants/le-delice-des-sens.jpg");
 }
 
 .img-la-note-enchantee {
-  background-image: url("../pictures/restaurants/la-note-enchantee.jpg"); /* Image pour la page 1 */
+  background-image: url("../pictures/restaurants/la-note-enchantee.jpg");
 }
 
 .img-a-la-francaise {
-  background-image: url("../pictures/restaurants/a-la-francaise.jpg"); /* Image pour la page 2 */
+  background-image: url("../pictures/restaurants/a-la-francaise.jpg");
 }
 
+// Page header
 .menu-body {
   @include column;
   gap: $gap-1;
@@ -49,11 +60,13 @@
   padding: $p-4;
   background-color: $grey-bg;
   border-radius: 40px;
+
   .header {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding-top: 19px;
+
     .title {
       text-align: center;
       font-family: $title-font-family;
@@ -61,15 +74,19 @@
     }
   }
 }
+
+// Section header
 .container-header {
   @include column;
   justify-content: space-between;
   height: 27px;
+
   .container-title {
     font-size: $base-font-size;
     font-weight: $thin-font-weight;
     text-transform: uppercase;
   }
+
   hr {
     width: 36px;
     padding: 2px;
@@ -79,49 +96,89 @@
 }
 
 .dish-card {
+  // Card container in relative position to place the dish selection button
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 69px;
-  width: 100%;
+  padding: 15px 0 15px 15px;
   background: $base-color;
   border-radius: $border-radius-m;
   @include box-shadow-card;
 
   .card-description {
-    h3 {
-      font-size: $h3-font-size;
-      font-weight: $medium-font-weight;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // Cropping long card text
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    gap: $gap-8;
+    padding-right: 12px;
+    * {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    h3 {
+      font-size: $h3-font-size;
+      font-weight: $medium-font-weight;
     }
     p {
       font-size: $s-font-size;
       font-weight: $thin-font-weight;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
   }
+
   .card-price {
     align-self: flex-end;
     color: $grey-1;
     font-weight: $medium-font-weight;
   }
 
-  //
+  // Disappearance of the input and replacement of the padding-right of .dish-card = 0px by the width of the input
   input[type="checkbox"] {
-    display: none;
+    opacity: 0;
+    width: 15px;
   }
+
   .selected-btn {
-    display: none;
+    // Absolute position to place the button relative to the card
+    position: absolute;
+    // Disappearance of the button
+    opacity: 0;
+    // Offset the button outside the card for a sliding effect
+    right: -59px;
+    width: 59px;
     height: 100%;
-    min-width: 59px;
     background-color: $tertiary;
     color: $base-color;
     border: none;
-    border-top-right-radius: $border-radius-s;
-    border-bottom-right-radius: $border-radius-s;
+    border-top-right-radius: $border-radius-m;
+    border-bottom-right-radius: $border-radius-m;
+  }
+
+  //                 Swipe effect du selected-button
+
+  // Appearance from button in the card by clicking on herself
+  input[type="checkbox"]:checked + .selected-btn {
+    opacity: 1;
+    // Left swipe effect
+    transform: translate(-58px, 0px);
+  }
+
+  // Offset of .dish-card elements on click
+  input[type="checkbox"]:checked {
+    margin-left: 60px;
+  }
+
+  // Disappearance of the button by clicking on himself
+  input[type="checkbox"] + .selected-btn:focus {
+    opacity: 0;
+    // Right swipe effect
+    transform: translate(58px, 0px);
   }
 }
