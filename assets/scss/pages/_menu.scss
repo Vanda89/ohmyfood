@@ -16,8 +16,9 @@
     @include column;
     align-items: center;
     gap: $gap-1;
+    padding: $p-4;
 
-    section {
+    .menu__section {
       @include column;
       gap: $gap-6;
     }
@@ -25,7 +26,7 @@
 }
 
 // Restaurant photo adjustment in background
-.menu-img-container {
+.menu__img {
   width: 100%;
   height: 60vh;
   background-color: $grey-2;
@@ -56,21 +57,20 @@
 }
 
 // Page header
-.menu-body {
+.menu__body {
   @include column;
   gap: $gap-1;
   margin-top: -58px;
-  padding: $p-4;
   background-color: $grey-bg;
   border-radius: 40px;
 
-  .header {
+  .menu__header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding-top: 19px;
+    padding: 19px 17px 0 17px;
 
-    .title {
+    .menu__title {
       text-align: center;
       font-family: $title-font-family;
       font-size: $h1-font-size;
@@ -79,18 +79,18 @@
 }
 
 // Section header
-.container-header {
+.menu__section__header {
   @include column;
   justify-content: space-between;
   height: 27px;
 
-  .container-title {
+  .menu__section__title {
     font-size: $base-font-size;
     font-weight: $thin-font-weight;
     text-transform: uppercase;
   }
 
-  hr {
+  .menu__section__hr {
     width: 36px;
     padding: 2px;
     border: none;
@@ -111,7 +111,7 @@
   border-radius: $border-radius-m;
   @include box-shadow-card;
 
-  .card-description {
+  .dish-card__description {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -126,29 +126,29 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    h3 {
+    .dish-card__title {
       font-size: $h3-font-size;
       font-weight: $medium-font-weight;
     }
-    p {
+    .dish-card__text {
       font-size: $s-font-size;
       font-weight: $thin-font-weight;
     }
   }
 
-  .card-price {
+  .dish-card__price {
     align-self: flex-end;
     color: $grey-1;
     font-weight: $medium-font-weight;
   }
 
   // Disappearance of the input and replacement of the padding-right of .dish-card = 0px by the width of the input
-  input[type="checkbox"] {
+  .dish-card__i-checkbox.i-checkbox {
     opacity: 0;
     width: 15px;
   }
 
-  .selected-btn {
+  .dish-card__btn-selected.btn-selected {
     // Absolute position to place the button relative to the card
     position: absolute;
     // Disappearance of the button
@@ -167,19 +167,19 @@
   //                 Swipe effect du selected-button
 
   // Appearance from button in the card by clicking on herself
-  input[type="checkbox"]:checked + .selected-btn {
+  .i-checkbox:checked + .btn-selected {
     opacity: 1;
     // Left swipe effect
     transform: translate(-58px, 0px);
   }
 
   // Offset of .dish-card elements on click
-  input[type="checkbox"]:checked {
+  .i-checkbox:checked {
     margin-left: 60px;
   }
 
   // Disappearance of the button by clicking on himself
-  input[type="checkbox"] + .selected-btn:focus {
+  .i-checkbox + .btn-selected:focus {
     opacity: 0;
     // Right swipe effect
     transform: translate(58px, 0px);

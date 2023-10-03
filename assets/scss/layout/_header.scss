@@ -9,21 +9,21 @@
 // Import mixins file
 @import "../utils/mixins";
 
-header {
+.app-header {
   position: relative;
-  .logo-container {
+  .header__logo__container {
     @include center-element;
     height: 63px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 
-    .logo {
+    .header__logo {
       font-family: $title-font-family;
       font-size: $title-font-family;
     }
   }
 
   // icon for the homepage
-  .location {
+  .header__location__container {
     @include center-element;
     height: 50px;
     gap: $gap-4;
@@ -34,12 +34,12 @@ header {
   }
 
   // icon for the menu pages
-  .back-arrow {
+  .header__back-arrow {
     position: absolute;
     left: 17px;
     width: 30px;
     color: $grey-1;
-    i {
+    .header__back-arrow-icon {
       font-size: 25px;
     }
   }

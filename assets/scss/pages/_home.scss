@@ -16,12 +16,12 @@
   text-align: center;
   background-color: $grey-bg;
 
-  h2 {
+  .app-introduction__title {
     padding: 12px 24px;
     font-size: $h2-font-size;
   }
 
-  p {
+  .app-introduction__text {
     font-size: $l-font-size;
     font-weight: $thin-font-weight;
     margin-bottom: $m-1;
@@ -33,7 +33,7 @@
   gap: $gap-2;
   padding: $p-section;
 
-  ul {
+  .app-steps__steps-container {
     @include column;
     gap: $gap-2;
     padding: 0;
@@ -42,7 +42,7 @@
 }
 
 // relative and absolute position to put the element "number" on the step card
-.step {
+.steps-container__step.step {
   position: relative;
   display: flex;
   align-items: center;
@@ -54,7 +54,7 @@
   @include box-shadow-card;
 
   // element "number"
-  span {
+  .step__number {
     position: absolute;
     left: -12px;
     @include center-element;
@@ -66,18 +66,18 @@
     color: $base-color;
   }
 
-  .step-content {
+  .step__content {
     display: flex;
     gap: $gap-2;
     height: 100%;
     align-items: center;
-    i {
+    .step__content__icon {
       align-self: flex-start;
       line-height: 1.15;
       font-size: $l-font-size;
       color: $grey-3;
     }
-    p {
+    .step__content__text {
       font-weight: 500;
     }
   }
@@ -89,7 +89,7 @@
   padding: $p-section;
   background: $grey-bg;
 
-  .restaurants-card-container {
+  .restaurants-card__container {
     @include column;
     gap: $gap-3;
   }
@@ -107,7 +107,7 @@
 }
 
 // relative and absolute position to put the card "Nouveau" on the restaurant card
-.card-img {
+.card__img {
   position: relative;
   height: 170px;
   background-color: $grey-2;
@@ -124,7 +124,7 @@
     border-top-right-radius: $border-radius-s;
   }
   // span "Nouveau"
-  span {
+  .card__img__badge {
     position: absolute;
     @include center-element;
     width: 80px;
@@ -137,24 +137,24 @@
   }
 }
 
-.card-body {
+.card__body {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: $p-3;
   gap: $gap-8;
-}
 
-.card-header {
-  @include column;
-  height: 100%;
-  width: 80%;
-  gap: $gap-8;
-  h3 {
-    font-size: $h3-font-size;
-  }
-  p {
-    font-size: $m-font-size;
+  .card__body__header {
+    @include column;
+    height: 100%;
+    width: 80%;
+    gap: $gap-8;
+    h3 {
+      font-size: $h3-font-size;
+    }
+    p {
+      font-size: $m-font-size;
+    }
   }
 }

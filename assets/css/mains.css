@@ -286,19 +286,19 @@ template {
   font-weight: 500;
 }
 
-.favorites-icons {
+.heart__icons {
   display: flex;
   justify-content: center;
   width: 20%;
   height: 100%;
 }
-.favorites-icons > * {
+.heart__icons .heart__icon {
   font-size: 21px;
 }
-.favorites-icons .empty-heart {
+.heart__icons .heart__icon-empty {
   position: relative;
 }
-.favorites-icons .full-heart {
+.heart__icons .heart__icon-full {
   position: absolute;
   background: linear-gradient(to bottom, #9356dc -5.2%, #ff79da 110.74%);
   color: transparent;
@@ -342,21 +342,21 @@ a {
   text-decoration: none;
 }
 
-header {
+.app-header {
   position: relative;
 }
-header .logo-container {
+.app-header .header__logo__container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 63px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
-header .logo-container .logo {
+.app-header .header__logo__container .header__logo {
   font-family: "Shrikhand", cursive;
   font-size: "Shrikhand", cursive;
 }
-header .location {
+.app-header .header__location__container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -367,33 +367,33 @@ header .location {
   color: #353535;
   background-color: #eaeaea;
 }
-header .back-arrow {
+.app-header .header__back-arrow {
   position: absolute;
   left: 17px;
   width: 30px;
   color: #353535;
 }
-header .back-arrow i {
+.app-header .header__back-arrow .header__back-arrow-icon {
   font-size: 25px;
 }
 
-footer {
+.app-footer {
   padding: 22px 25px;
   background-color: #353535;
   color: #fff;
 }
-footer h3 {
+.app-footer .footer__logo {
   font-family: "Shrikhand", cursive;
   font-size: 1.125rem;
   font-weight: 500;
 }
-footer ul {
+.app-footer .footer__links__container {
   display: flex;
   flex-direction: column;
   gap: 7px;
   list-style: none;
 }
-footer ul li a {
+.app-footer .footer__links__container .footer__link .footer__link-inner {
   display: flex;
   gap: 12px;
   font-family: "Roboto", sans-serif;
@@ -401,7 +401,7 @@ footer ul li a {
   font-weight: 500;
   color: #fff;
 }
-footer ul li a i {
+.app-footer .footer__links__container .footer__link .footer__link-inner .footer__icon {
   display: flex;
   width: 11.918px;
   height: 13px;
@@ -417,11 +417,11 @@ footer ul li a i {
   text-align: center;
   background-color: #f6f6f6;
 }
-.app-introduction h2 {
+.app-introduction .app-introduction__title {
   padding: 12px 24px;
   font-size: 1.5rem;
 }
-.app-introduction p {
+.app-introduction .app-introduction__text {
   font-size: 1.125rem;
   font-weight: 300;
   margin-bottom: 30px;
@@ -433,7 +433,7 @@ footer ul li a i {
   gap: 25px;
   padding: 48px 20px 68px 20px;
 }
-.app-steps ul {
+.app-steps .app-steps__steps-container {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -441,7 +441,7 @@ footer ul li a i {
   list-style: none;
 }
 
-.step {
+.steps-container__step.step {
   position: relative;
   display: flex;
   align-items: center;
@@ -452,7 +452,7 @@ footer ul li a i {
   background: #fff;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
 }
-.step span {
+.steps-container__step.step .step__number {
   position: absolute;
   left: -12px;
   display: flex;
@@ -465,19 +465,19 @@ footer ul li a i {
   border-radius: 50%;
   color: #fff;
 }
-.step .step-content {
+.steps-container__step.step .step__content {
   display: flex;
   gap: 25px;
   height: 100%;
   align-items: center;
 }
-.step .step-content i {
+.steps-container__step.step .step__content .step__content__icon {
   align-self: flex-start;
   line-height: 1.15;
   font-size: 1.125rem;
   color: #7e7e7e;
 }
-.step .step-content p {
+.steps-container__step.step .step__content .step__content__text {
   font-weight: 500;
 }
 
@@ -488,7 +488,7 @@ footer ul li a i {
   padding: 48px 20px 68px 20px;
   background: #f6f6f6;
 }
-.app-restaurants .restaurants-card-container {
+.app-restaurants .restaurants-card__container {
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -507,7 +507,7 @@ footer ul li a i {
   background-color: #fff;
 }
 
-.card-img {
+.card__img {
   position: relative;
   height: 170px;
   background-color: #eaeaea;
@@ -515,7 +515,7 @@ footer ul li a i {
   border-top-right-radius: 15px;
   overflow: hidden;
 }
-.card-img img {
+.card__img img {
   object-fit: cover;
   object-position: bottom;
   height: 100%;
@@ -523,7 +523,7 @@ footer ul li a i {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
-.card-img span {
+.card__img .card__img__badge {
   position: absolute;
   display: flex;
   align-items: center;
@@ -537,7 +537,7 @@ footer ul li a i {
   border-radius: 2px;
 }
 
-.card-body {
+.card__body {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -545,18 +545,17 @@ footer ul li a i {
   padding: 15px;
   gap: 5px;
 }
-
-.card-header {
+.card__body .card__body__header {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 80%;
   gap: 5px;
 }
-.card-header h3 {
+.card__body .card__body__header h3 {
   font-size: 1.125rem;
 }
-.card-header p {
+.card__body .card__body__header p {
   font-size: 1.063rem;
 }
 
@@ -568,21 +567,22 @@ footer ul li a i {
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  padding: 13px;
 }
-.menu form section {
+.menu form .menu__section {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.menu-img-container {
+.menu__img {
   width: 100%;
   height: 60vh;
   background-color: #eaeaea;
   background-size: cover;
   background-position: center;
 }
-.menu-img-container img {
+.menu__img img {
   display: none;
 }
 
@@ -602,39 +602,38 @@ footer ul li a i {
   background-image: url("../pictures/restaurants/a-la-francaise.jpg");
 }
 
-.menu-body {
+.menu__body {
   display: flex;
   flex-direction: column;
   gap: 40px;
   margin-top: -58px;
-  padding: 13px;
   background-color: #f6f6f6;
   border-radius: 40px;
 }
-.menu-body .header {
+.menu__body .menu__header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 19px;
+  padding: 19px 17px 0 17px;
 }
-.menu-body .header .title {
+.menu__body .menu__header .menu__title {
   text-align: center;
   font-family: "Shrikhand", cursive;
   font-size: 1.75rem;
 }
 
-.container-header {
+.menu__section__header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 27px;
 }
-.container-header .container-title {
+.menu__section__header .menu__section__title {
   font-size: 16px;
   font-weight: 300;
   text-transform: uppercase;
 }
-.container-header hr {
+.menu__section__header .menu__section__hr {
   width: 36px;
   padding: 2px;
   border: none;
@@ -653,7 +652,7 @@ footer ul li a i {
   border-radius: 20px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
 }
-.dish-card .card-description {
+.dish-card .dish-card__description {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -663,29 +662,29 @@ footer ul li a i {
   gap: 5px;
   padding-right: 12px;
 }
-.dish-card .card-description * {
+.dish-card .dish-card__description * {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.dish-card .card-description h3 {
+.dish-card .dish-card__description .dish-card__title {
   font-size: 1.125rem;
   font-weight: 500;
 }
-.dish-card .card-description p {
+.dish-card .dish-card__description .dish-card__text {
   font-size: 0.938rem;
   font-weight: 300;
 }
-.dish-card .card-price {
+.dish-card .dish-card__price {
   align-self: flex-end;
   color: #353535;
   font-weight: 500;
 }
-.dish-card input[type=checkbox] {
+.dish-card .dish-card__i-checkbox.i-checkbox {
   opacity: 0;
   width: 15px;
 }
-.dish-card .selected-btn {
+.dish-card .dish-card__btn-selected.btn-selected {
   position: absolute;
   opacity: 0;
   right: -59px;
@@ -697,14 +696,14 @@ footer ul li a i {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-.dish-card input[type=checkbox]:checked + .selected-btn {
+.dish-card .i-checkbox:checked + .btn-selected {
   opacity: 1;
   transform: translate(-58px, 0px);
 }
-.dish-card input[type=checkbox]:checked {
+.dish-card .i-checkbox:checked {
   margin-left: 60px;
 }
-.dish-card input[type=checkbox] + .selected-btn:focus {
+.dish-card .i-checkbox + .btn-selected:focus {
   opacity: 0;
   transform: translate(58px, 0px);
 }

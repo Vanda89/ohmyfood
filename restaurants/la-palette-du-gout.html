@@ -4,187 +4,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/mains.css">
     <script src="https://kit.fontawesome.com/36e69cf97d.js" crossorigin="anonymous"></script>
     <title>ohmyfood - La palette du goût</title>
 </head>
 
-<body>
+<body class="menu-page">
     <div class="main-container">
-        <header class="menu-header">
-            <div class="logo-container">
-                <a href="/index.html" class="back-arrow"><i class="fa-solid fa-arrow-left"></i></a>
-                <h1 class="logo">ohmyfood</h1>
+
+        <header class="app-header header">
+            <div class="header__logo__container">
+                <a href="/index.html" class="header__back-arrow">
+                    <i class="header__back-arrow-icon fa-solid fa-arrow-left"></i>
+                </a>
+                <h1 class="header__logo">ohmyfood</h1>
             </div>
         </header>
 
         <main class="menu">
-            <div class="menu-img-container img-la-palette-du-gout">
+            <div class="menu__img img-la-palette-du-gout">
                 <img src="../assets/pictures/restaurants/la-palette-du-gout.jpg"
                     alt="Plats servis dans le restaurant La Palette du goût, Ménilmontant, Paris"
                     title="La Palette du goût, Ménilmontant, Paris">
             </div>
 
-            <div class="menu-body">
-                <div class="header">
-                    <h1 class="title">La palette du goût</h1>
-                    <div class="icons favorites-icons">
-                        <i class="fa-regular fa-heart empty-heart"></i>
-                        <i class="fa-solid fa-heart full-heart"></i>
+            <div class="menu__body">
+                <div class="menu__header header">
+                    <h1 class="menu__title">La palette du goût</h1>
+                    <div class="menu__icons heart__icons">
+                        <i class="heart__icon heart__icon-empty fa-regular fa-heart"></i>
+                        <i class="heart__icon heart__icon-full fa-solid fa-heart"></i>
                     </div>
                 </div>
 
                 <form action="#" method="post">
-                    <section class="entries-container">
-                        <div class="container-header">
-                            <h2 class="container-title">Entrées</h2>
-                            <hr class="">
+                    <section class="menu__entries-section menu__section">
+                        <div class="menu__section__header">
+                            <h2 class="menu__section__title">Entrées</h2>
+                            <hr class="menu__section__hr">
                         </div>
 
-                        <label for="entry-1" class="dish-card">
-                            <div class="card-description">
-                                <h3>Fricassée d'escargots</h3>
-                                <p>Au piment d'Espelette </p>
+                        <label for="entry-1" class="menu__dish-card dish-card">
+                            <div class="dish-card__description">
+                                <h3 class="dish-card__title">Fricassée d'escargots</h3>
+                                <p class="dish-card__text">Au piment d'Espelette </p>
                             </div>
-                            <div class="card-price">25€</div>
-                            <input type="checkbox" name="entry-1" id="entry-1">
-                            <button type="button" class="selected-btn"><i
-                                    class="fa-regular fa-circle-check"></i></button>
+                            <div class="dish-card__price">25€</div>
+                            <input class="dish-card__i-checkbox i-checkbox" type="checkbox" name="entry-1" id="entry-1">
+                            <button type="button" class="dish-card__btn-selected btn-selected">
+                                <i class="fa-regular fa-circle-check"></i></button>
                         </label>
 
-                        <label for="entry-2" class="dish-card">
-                            <div class="card-description">
-                                <h3>Foie gras de canard mi-cuit</h3>
-                                <p>Et ses copeaux de truffe noire</p>
+                        <label for="entry-2" class="menu__dish-card dish-card">
+                            <div class="dish-card__description">
+                                <h3 class="dish-card__title">Foie gras de canard mi-cuit</h3>
+                                <p class="dish-card__text">Et ses copeaux de truffe noire</p>
                             </div>
-                            <div class="card-price">35€</div>
-
-                            <input type="checkbox" name="entry-2" id="entry-2">
-                            <button type="button" class="selected-btn"><i
-                                    class="fa-regular fa-circle-check"></i></button>
+                            <div class="dish-card__price">35€</div>
+                            <input class="dish-card__i-checkbox i-checkbox" type="checkbox" name="entry-2" id="entry-2">
+                            <button type="button" class="dish-card__btn-selected btn-selected">
+                                <i class="fa-regular fa-circle-check"></i></button>
                         </label>
 
-                        <label for="entry-3" class="dish-card">
-                            <div class="card-description">
-                                <h3>Œuf au plat</h3>
-                                <p>Assaisonné à la truffe sur lit de caviar</p>
+                        <label for="entry-3" class="menu__dish-card dish-card">
+                            <div class="dish-card__description">
+                                <h3 class="dish-card__title">Œuf au plat</h3>
+                                <p class="dish-card__text">Assaisonné à la truffe sur lit de caviar</p>
                             </div>
-                            <div class="card-price">20€</div>
-
-                            <input type="checkbox" name="entry-3" id="entry-3">
-                            <button type="button" class="selected-btn"><i
-                                    class="fa-regular fa-circle-check"></i></button>
+                            <div class="dish-card__price">20€</div>
+                            <input class="dish-card__i-checkbox i-checkbox" type="checkbox" name="entry-3" id="entry-3">
+                            <button type="button" class="dish-card__btn-selected btn-selected">
+                                <i class="fa-regular fa-circle-check"></i></button>
                         </label>
                     </section>
 
-                    <section class="dishes-container">
-                        <div class="container-header">
-                            <h2 class="container-title">Plats</h2>
-                            <hr class="">
+                    <section class="menu__dishes-section menu__section">
+                        <div class="menu__section__header">
+                            <h2 class="menu__section__title">Plats</h2>
+                            <hr class="menu__section__hr">
                         </div>
 
-                        <label for="dish-1" class="dish-card">
-                            <div class="card-description">
-                                <h3>Filet de bœuf aux herbes</h3>
-                                <p>Accompagné de sa ribambelle de légumes</p>
+                        <label for="dish-1" class="menu__dish-card dish-card">
+                            <div class="dish-card__description">
+                                <h3 class="dish-card__title">Filet de bœuf aux herbes</h3>
+                                <p class="dish-card__text">Accompagné de sa ribambelle de légumes</p>
                             </div>
-                            <div class="card-price">40€</div>
-                            <input type="checkbox" value="dish-1" name="dish-1" id="dish-1">
-                            <button type="button" class="selected-btn"><i
+                            <div class="dish-card__price">40€</div>
+                            <input class="dish-card__i-checkbox i-checkbox" type="checkbox" name="dish-1" id="dish-1">
+                            <button type="button" class="dish-card__btn-selected btn-selected"><i
                                     class="fa-regular fa-circle-check"></i></button>
                         </label>
 
-                        <label for="dish-2" class="dish-card">
-                            <div class="card-description">
-                                <h3>Parmentier de queue de bœuf</h3>
-                                <p>À la truffe noire sur sa purée de panais</p>
+                        <label for="dish-2" class="menu__dish-card dish-card">
+                            <div class="dish-card__description">
+                                <h3 class="dish-card__title">Parmentier de queue de bœuf</h3>
+                                <p class="dish-card__text">À la truffe noire sur sa purée de panais</p>
                             </div>
-                            <div class="card-price">35€</div>
-                            <input type="checkbox" name="dish-2" id="dish-2">
-                            <button type="button" class="selected-btn"><i
-                                    class="fa-regular fa-circle-check"></i></button>
+                            <div class="dish-card__price">35€</div>
+                            <input class="dish-card__i-checkbox i-checkbox" type="checkbox" name="dish-2" id="dish-2">
+                            <button type="button" class="dish-card__btn-selected btn-selected">
+                                <i class="fa-regular fa-circle-check"></i></button>
                         </label>
 
-                        <label for="dish-3" class="dish-card">
-                            <div class="card-description">
-                                <h3>Filet de turbot</h3>
-                                <p>Aux agrumes</p>
+                        <label for="dish-3" class="menu__dish-card dish-card">
+                            <div class="dish-card__description">
+                                <h3 class="dish-card__title">Filet de turbot</h3>
+                                <p class="dish-card__text">Aux agrumes</p>
                             </div>
-                            <div class="card-price">44€</div>
-                            <input type="checkbox" name="dish-3" id="dish-3">
-                            <button type="button" class="selected-btn"><i
-                                    class="fa-regular fa-circle-check"></i></button>
+                            <div class="dish-card__price">44€</div>
+                            <input class="dish-card__i-checkbox i-checkbox" type="checkbox" name="dish-3" id="dish-3">
+                            <button type="button" class="dish-card__btn-selected btn-selected">
+                                <i class="fa-regular fa-circle-check"></i></button>
                         </label>
                     </section>
 
-                    <section class="desserts-container">
-                        <div class="container-header">
-                            <h2 class="container-title">Desserts</h2>
-                            <hr class="">
+                    <section class="menu__desserts-section menu__section">
+                        <div class="menu__section__header">
+                            <h2 class="menu__section__title">Desserts</h2>
+                            <hr class="menu__section__hr">
                         </div>
 
-                        <label for="dessert-1" class="dish-card">
-                            <div class="card-description">
-                                <h3>Paris-Brest</h3>
-                                <p>Revisité</p>
+                        <label for="dessert-1" class="menu__dish-card dish-card">
+                            <div class="dish-card__description">
+                                <h3 class="dish-card__title">Paris-Brest</h3>
+                                <p class="dish-card__text">Revisité</p>
                             </div>
-                            <div class="card-price">18€</div>
-                            <input type="checkbox" name="dessert-1" id="dessert-1">
-                            <button type="button" class="selected-btn"><i
+                            <div class="dish-card__price">18€</div>
+                            <input class="dish-card__i-checkbox i-checkbox" type="checkbox" name="dessert-1"
+                                id="dessert-1">
+                            <button type="button" class="dish-card__btn-selected btn-selected"><i
                                     class="fa-regular fa-circle-check"></i></button>
                         </label>
 
-                        <label for="dessert-2" class="dish-card">
-                            <div class="card-description">
-                                <h3>Macaron au chocolat d'exception </h3>
-                                <p>Et glace à la vanille de Madagascar</p>
+                        <label for="dessert-2" class="menu__dish-card dish-card">
+                            <div class="dish-card__description">
+                                <h3 class="dish-card__title">Macaron au chocolat d'exception </h3>
+                                <p class="dish-card__text">Et glace à la vanille de Madagascar</p>
                             </div>
-                            <div class="card-price">22€</div>
-                            <input type="checkbox" name="dessert-2" id="dessert-2">
-                            <button type="button" class="selected-btn"><i
-                                    class="fa-regular fa-circle-check"></i></button>
+                            <div class="dish-card__price">22€</div>
+                            <input class="dish-card__i-checkbox i-checkbox" type="checkbox" name="dessert-2"
+                                id="dessert-2">
+                            <button type="button" class="dish-card__btn-selected btn-selected">
+                                <i class="fa-regular fa-circle-check"></i></button>
                         </label>
 
-                        <label for="dessert-3" class="dish-card">
-                            <div class="card-description">
-                                <h3>Mousse au chocolat </h3>
-                                <p>Au piment d'Espelette et à la truffe noire</p>
+                        <label for="dessert-3" class="menu__dish-card dish-card">
+                            <div class="dish-card__description">
+                                <h3 class="dish-card__title">Mousse au chocolat </h3>
+                                <p class="dish-card__text">Au piment d'Espelette et à la truffe noire</p>
                             </div>
-                            <div class="card-price">23€</div>
-                            <input type="checkbox" name="dessert-3" id="dessert-3">
-                            <button type="button" class="selected-btn"><i
-                                    class="fa-regular fa-circle-check"></i></button>
+                            <div class="dish-card__price">23€</div>
+                            <input class="dish-card__i-checkbox i-checkbox" type="checkbox" name="dessert-3"
+                                id="dessert-3">
+                            <button type="button" class="dish-card__btn-selected btn-selected">
+                                <i class="fa-regular fa-circle-check"></i></button>
                         </label>
                     </section>
-                    <button type="submit" class="btn btn-medium">
-                        <a href="#">
-                            Commander
-                        </a>
+                    <button type="submit" class="menu__submit-btn btn btn-medium">
+                        <a href="#">Commander</a>
                     </button>
                 </form>
             </div>
         </main>
 
-        <footer class="app-footer">
-            <h3 class="footer-logo">ohmyfood</h3>
-            <ul class="footer-links-container">
-                <li>
-                    <a href="#" class="footer-link icon-container">
-                        <i class="fa-solid fa-utensils"></i>
-                        <p>Proposer un restaurant</p>
+        <footer class="app-footer footer">
+            <h3 class="footer__logo">ohmyfood</h3>
+            <ul class="footer__links__container">
+                <li class="footer__link">
+                    <a href="#" class="footer__link-inner link-inner-suggestion">
+                        <i class="footer__icon fa-solid fa-utensils"></i>
+                        <p class="footer__text">Proposer un restaurant</p>
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="footer-link icon-container">
-                        <i class="fa-solid fa-handshake-angle"></i>
-                        <p>Devenir partenaire</p>
+
+                <li class="footer__link">
+                    <a href="#" class="footer__link-inner link-inner-partnership">
+                        <i class="footer__icon fa-solid fa-handshake-angle"></i>
+                        <p class="footer__text">Devenir partenaire</p>
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="footer-link">Mentions légales</a>
+
+                <li class="footer__link">
+                    <a href="#" class="footer__link-inner link-inner-mentions">Mentions légales</a>
                 </li>
-                <li>
-                    <a href="mailto:ohmyfood@app.fr" class="footer-link">Contact</a>
+
+                <li class="footer__link">
+                    <a href="mailto:ohmyfood@app.fr" class="footer__link-inner link-inner-mail-to">Contact</a>
                 </li>
             </ul>
         </footer>

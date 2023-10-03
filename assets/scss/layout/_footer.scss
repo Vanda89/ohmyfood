@@ -9,24 +9,25 @@
 // Import mixins file
 @import "../utils/mixins";
 
-footer {
+.app-footer {
   padding: $p-footer;
   background-color: $grey-1;
   color: $base-color;
 
-  h3 {
+  .footer__logo {
     font-family: $title-font-family;
     font-size: $h3-font-size;
     font-weight: $medium-font-weight;
   }
 
-  ul {
+  .footer__links__container {
     display: flex;
     flex-direction: column;
     gap: $gap-7;
     list-style: none;
-    li {
-      a {
+
+    .footer__link {
+      .footer__link-inner {
         display: flex;
         gap: $gap-6;
         font-family: $base-font-family;
@@ -34,7 +35,7 @@ footer {
         font-weight: $medium-font-weight;
         color: $base-color;
 
-        i {
+        .footer__icon {
           display: flex;
           width: 11.918px;
           height: 13px;

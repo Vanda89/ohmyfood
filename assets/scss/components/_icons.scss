@@ -9,23 +9,22 @@
 // Import mixins file
 @import "../utils/mixins";
 
-// heart icons
-.favorites-icons {
+.heart__icons {
   display: flex;
   justify-content: center;
   width: 20%;
   height: 100%;
 
-  > * {
+  .heart__icon {
     font-size: 21px;
   }
 
   // relative and absolute position to put the full heart on the empty heart
-  .empty-heart {
+  .heart__icon-empty {
     position: relative;
   }
 
-  .full-heart {
+  .heart__icon-full {
     position: absolute;
     background: $icon-gradient;
     color: transparent;
