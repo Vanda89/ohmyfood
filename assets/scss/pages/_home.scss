@@ -9,6 +9,8 @@
 // Import mixins file
 @import "../utils/mixins";
 
+//**************************
+
 .app-introduction {
   @include center-element;
   flex-direction: column;
@@ -16,28 +18,67 @@
   text-align: center;
   background-color: $grey-bg;
 
+  @media screen and (min-width: 1024px) {
+    gap: 18px;
+    padding: $p-section-l;
+  }
+
   .app-introduction__title {
+    font-size: $h1-font-size;
     padding: 12px 24px;
-    font-size: $h2-font-size;
+
+    @media screen and (min-width: 768px) {
+      font-size: $h1-font-size-tablet;
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: $h1-font-size-desktop;
+      padding: 0;
+      margin-bottom: $m-3;
+      line-height: 1.25;
+    }
   }
 
   .app-introduction__text {
     font-size: $l-font-size;
     font-weight: $thin-font-weight;
     margin-bottom: $m-1;
+
+    @media screen and (min-width: 1024px) {
+      margin-bottom: $m-3;
+    }
   }
 }
 
 .app-steps {
   @include column;
   gap: $gap-2;
-  padding: $p-section;
+  padding: $p-section-s;
+  background-color: $base-color;
+
+  @media screen and (min-width: 768px) {
+    @include center-element;
+    padding: $p-section-m;
+  }
+  @media screen and (min-width: 1024px) {
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+    padding: 50px 180px;
+  }
 
   .app-steps__steps-container {
     @include column;
     gap: $gap-2;
     padding: 0;
     list-style: none;
+
+    @media screen and (min-width: 768px) {
+      width: 100%;
+    }
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+    }
   }
 }
 
@@ -52,6 +93,10 @@
   border-radius: $border-radius-m;
   background: $base-color;
   @include box-shadow-card;
+
+  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+    text-wrap: nowrap;
+  }
 
   // element "number"
   .step__number {
@@ -71,12 +116,24 @@
     gap: $gap-2;
     height: 100%;
     align-items: center;
+
     .step__content__icon {
       align-self: flex-start;
       line-height: 1.15;
       font-size: $l-font-size;
       color: $grey-3;
+
+      &:active {
+        color: $primary;
+      }
+
+      @media screen and (min-width: 1024px) {
+        &:hover {
+          color: $primary;
+        }
+      }
     }
+
     .step__content__text {
       font-weight: 500;
     }
@@ -86,23 +143,60 @@
 .app-restaurants {
   @include column;
   gap: $gap-2;
-  padding: $p-section;
+  padding: $p-section-s;
   background: $grey-bg;
+
+  @media screen and (min-width: 768px) {
+    padding: $p-section-m;
+    align-items: center;
+    gap: 28px;
+  }
+  @media screen and (min-width: 1024px) {
+    align-items: flex-start;
+  }
+
+  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+    padding: $p-section-l;
+  }
 
   .restaurants-card__container {
     @include column;
     gap: $gap-3;
-  }
-}
 
-.restaurant-card {
-  @include column;
-  @include box-shadow-card;
-  border-radius: $border-radius-s;
-  a {
+    @media screen and (min-width: 768px) {
+      width: 80%;
+      gap: 34px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 50px;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  .restaurant-card {
     @include column;
+    @include box-shadow-card;
     border-radius: $border-radius-s;
-    background-color: $base-color;
+
+    @media screen and (min-width: 1024px) {
+      // adjustment of restaurants card size in % with padding included
+      width: calc(50% - 50px);
+    }
+
+    @media screen and (min-width: 1440px) and (max-width: 2560px) {
+      // switching to px to give a final size
+      width: 490px;
+    }
+
+    a {
+      @include column;
+      border-radius: $border-radius-s;
+      background-color: $base-color;
+    }
   }
 }
 
@@ -114,15 +208,25 @@
   border-top-left-radius: $border-radius-s;
   border-top-right-radius: $border-radius-s;
   overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    height: 200px;
+  }
+
+  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+    height: 231px;
+  }
+
   // image adaptation in relation to its parent while preserving its ratio with object-fit: cover
   img {
     object-fit: cover;
-    object-position: bottom;
+    object-position: center;
     height: 100%;
     width: 100%;
     border-top-left-radius: $border-radius-s;
     border-top-right-radius: $border-radius-s;
   }
+
   // span "Nouveau"
   .card__img__badge {
     position: absolute;
@@ -131,6 +235,7 @@
     height: 29px;
     top: 12px;
     right: 12px;
+    font-weight: 500;
     background-color: $tertiary;
     color: $green-font;
     border-radius: 2px;

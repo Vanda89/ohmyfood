@@ -10,19 +10,9 @@
 @import "../utils/mixins";
 
 .menu {
+  @include column;
+  align-items: center;
   font-family: $base-font-family;
-
-  form {
-    @include column;
-    align-items: center;
-    gap: $gap-1;
-    padding: $p-4;
-
-    .menu__section {
-      @include column;
-      gap: $gap-6;
-    }
-  }
 }
 
 // Restaurant photo adjustment in background
@@ -32,7 +22,6 @@
   background-color: $grey-2;
   background-size: cover;
   background-position: center;
-
   // Hiding the original image
   img {
     display: none;
@@ -56,29 +45,123 @@
   background-image: url("../pictures/restaurants/a-la-francaise.jpg");
 }
 
-// Page header
 .menu__body {
   @include column;
+  width: 100%;
   gap: $gap-1;
-  margin-top: -58px;
+  margin-top: -48px;
   background-color: $grey-bg;
   border-radius: 40px;
 
-  .menu__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 19px 17px 0 17px;
+  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+    width: 75%;
+  }
+}
 
-    .menu__title {
-      text-align: center;
-      font-family: $title-font-family;
-      font-size: $h1-font-size;
+.menu__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 17px 0 17px;
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+    gap: 24px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 0;
+    padding-top: 51px;
+  }
+
+  .menu__title {
+    text-align: center;
+    font-family: $title-font-family;
+    font-size: $h1-menu-font-size;
+  }
+  .menu__icons {
+    @media screen and (min-width: 768px) {
+      width: auto;
     }
   }
 }
 
-// Section header
+.menu__content {
+  @include column;
+  align-items: center;
+  gap: $gap-1;
+  padding: $p-4;
+  @media screen and (min-width: 768px) {
+    padding: 0 150px;
+  }
+  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+    padding: 0 220px;
+  }
+
+  /******************************************/
+  .menu__section {
+    @include column;
+    gap: $gap-6;
+    // arrival of sections and button gradually
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .menu__order-btn {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+}
+
+// Animation definitions for menu sections and the order button
+
+/* Fade-in animation for the entries section */
+@keyframes fade-in-1 {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Fade-in animation for the dishes section */
+@keyframes fade-in-2 {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Fade-in animation for the desserts section */
+@keyframes fade-in-3 {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Fade-in animation for the order button */
+@keyframes fade-in-4 {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Applying animations to menu elements
+.menu__entries-section {
+  animation: fade-in-1 0.5s ease forwards 0.5s;
+}
+.menu__dishes-section {
+  animation: fade-in-2 0.5s ease forwards 1s;
+}
+.menu__desserts-section {
+  animation: fade-in-3 0.5s ease forwards 1.5s;
+}
+.menu__order-btn {
+  animation: fade-in-4 0.5s ease forwards 2s;
+}
+
+/********************************************/
+
 .menu__section__header {
   @include column;
   justify-content: space-between;
@@ -90,6 +173,7 @@
     text-transform: uppercase;
   }
 
+  // section title underline
   .menu__section__hr {
     width: 36px;
     padding: 2px;
@@ -99,37 +183,39 @@
 }
 
 .dish-card {
-  // Card container in relative position to place the dish selection button
-  position: relative;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 69px;
-  padding: 15px 0 15px 15px;
+  width: 100%;
   background: $base-color;
   border-radius: $border-radius-m;
   @include box-shadow-card;
+}
+
+.dish-card__body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: 15px;
 
   .dish-card__description {
-    display: flex;
-    flex-direction: column;
+    @include column;
     width: 100%;
     // Cropping long card text
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    @include ellipsis;
     gap: $gap-8;
     padding-right: 12px;
+
     * {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      @include ellipsis;
     }
+
     .dish-card__title {
       font-size: $h3-font-size;
       font-weight: $medium-font-weight;
     }
+
     .dish-card__text {
       font-size: $s-font-size;
       font-weight: $thin-font-weight;
@@ -141,47 +227,59 @@
     color: $grey-1;
     font-weight: $medium-font-weight;
   }
+}
 
-  // Disappearance of the input and replacement of the padding-right of .dish-card = 0px by the width of the input
-  .dish-card__i-checkbox.i-checkbox {
+// Base styles for the selected button and his icon
+.dish-card__btn.btn-selected {
+  height: 100%;
+  width: 0;
+  padding: 0;
+  background-color: $tertiary;
+  color: $base-color;
+  border: none;
+  border-top-right-radius: $border-radius-m;
+  border-bottom-right-radius: $border-radius-m;
+  // Transition width for a sliding effect
+  transition: width 0.4s ease;
+
+  /* Styles for the selected button icon */
+  .icon-selected {
+    font-size: 0;
+    background-color: $base-color;
+    border-radius: 50%;
+    color: $tertiary;
+    line-height: 0.9;
+    // Transition opacity for icon appearance
+    transition: opacity 0.4s ease;
+    // Hide the icon when not in use
     opacity: 0;
-    width: 15px;
   }
+}
 
-  .dish-card__btn-selected.btn-selected {
-    // Absolute position to place the button relative to the card
-    position: absolute;
-    // Disappearance of the button
-    opacity: 0;
-    // Offset the button outside the card for a sliding effect
-    right: -59px;
-    width: 59px;
-    height: 100%;
-    background-color: $tertiary;
-    color: $base-color;
-    border: none;
-    border-top-right-radius: $border-radius-m;
-    border-bottom-right-radius: $border-radius-m;
-  }
+// Styles for the selected button and his icon when the dish card is active or hovered
+.dish-card__body:active + .btn-selected,
+.dish-card__body:hover + .btn-selected {
+  // Expand button width for a sliding effect
+  width: 59px;
+  // Smooth transition of button width
+  transition: width 0.4s ease;
 
-  //                 Swipe effect du selected-button
-
-  // Appearance from button in the card by clicking on herself
-  .i-checkbox:checked + .btn-selected {
+  .icon-selected {
+    // Make the icon visible
     opacity: 1;
-    // Left swipe effect
-    transform: translate(-58px, 0px);
+    // Smooth transition of icon opacity
+    transition: opacity 0.4s ease;
+    // Increase icon size
+    font-size: 20px;
   }
+}
 
-  // Offset of .dish-card elements on click
-  .i-checkbox:checked {
-    margin-left: 60px;
-  }
+// Same styles and effect when the button is hovered
+.btn-selected:hover {
+  width: 59px;
 
-  // Disappearance of the button by clicking on himself
-  .i-checkbox + .btn-selected:focus {
-    opacity: 0;
-    // Right swipe effect
-    transform: translate(58px, 0px);
+  .icon-selected {
+    opacity: 1;
+    font-size: 20px;
   }
 }

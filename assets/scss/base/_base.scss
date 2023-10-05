@@ -28,8 +28,24 @@ html {
   }
 }
 
-main {
-  font-family: $base-font-family;
+.main-container {
+  @include column;
+  align-items: center;
+  background-color: $grey-bg;
+  main {
+    font-family: $base-font-family;
+  }
+
+  header,
+  main,
+  footer {
+    width: 100%;
+    @media screen and (min-width: 1440px) and (max-width: 2560px) {
+      width: 1440px;
+      box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.15),
+        3px 0px 3px rgba(0, 0, 0, 0.15);
+    }
+  }
 
   section {
     width: 100%;
@@ -37,6 +53,10 @@ main {
 }
 
 h1 {
+  margin: 0;
+}
+
+ul {
   margin: 0;
 }
 

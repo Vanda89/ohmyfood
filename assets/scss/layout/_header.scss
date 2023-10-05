@@ -10,37 +10,52 @@
 @import "../utils/mixins";
 
 .app-header {
+  // confederate .header__back-arrow
   position: relative;
+
   .header__logo__container {
     @include center-element;
     height: 63px;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+    background-color: $base-color;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+
+    @media screen and (min-width: 768px) {
+      height: 75px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      height: 96px;
+    }
 
     .header__logo {
-      font-family: $title-font-family;
-      font-size: $title-font-family;
+      width: 162px;
+      height: 44px;
+      @media screen and (min-width: 1024px) {
+        width: 200px;
+      }
     }
   }
+}
 
-  // icon for the homepage
-  .header__location__container {
-    @include center-element;
-    height: 50px;
-    gap: $gap-4;
-    font-family: $base-font-family;
-    font-weight: $medium-font-weight;
-    color: $grey-1;
-    background-color: $grey-2;
-  }
+// icon for the homepage
+.header__location__container {
+  @include center-element;
+  height: 50px;
+  gap: $gap-4;
+  font-family: $base-font-family;
+  font-weight: $medium-font-weight;
+  color: $grey-1;
+  background-color: $grey-2;
+}
 
-  // icon for the menu pages
-  .header__back-arrow {
-    position: absolute;
-    left: 17px;
-    width: 30px;
-    color: $grey-1;
-    .header__back-arrow-icon {
-      font-size: 25px;
-    }
+// icon for the menu pages
+.header__back-arrow {
+  // absolute position to let the logo be centered in the header
+  position: absolute;
+  left: 17px;
+  width: 30px;
+  color: $grey-1;
+  .header__back-arrow-icon {
+    font-size: 25px;
   }
 }

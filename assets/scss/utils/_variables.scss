@@ -11,7 +11,7 @@ $primary: #9356dc;
 $secondary: #ff79da;
 $green-font: #008766;
 $tertiary: #99e2d0;
-$button-gradient: linear-gradient(355deg, #9356dc -5.2%, #ff79da 110.74%);
+$button-gradient: linear-gradient(355deg, #9356dc -15.2%, #ff79da 90.74%);
 $icon-gradient: linear-gradient(to bottom, #9356dc -5.2%, #ff79da 110.74%);
 
 // Gap
@@ -39,9 +39,12 @@ $p-5: 10px;
 
 $p-logo: 14px 89px;
 
-$p-section: 48px 20px 68px 20px;
+$p-section-s: 48px 20px 68px 20px;
+$p-section-m: 50px 100px 50px 100px;
+$p-section-l: 30px 180px;
 
 $p-footer: 22px 25px;
+$p-footer-l: 30px 25px;
 
 // Border-radius
 $border-radius-l: 25px;
