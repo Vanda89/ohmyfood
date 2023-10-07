@@ -16,26 +16,26 @@
   background-color: $grey-1;
   color: $base-color;
 
-  @media screen and (min-width: 768px) {
+  @include media-query(768px) {
     padding: $p-footer-l;
   }
 
-  @media screen and (min-width: 1440px) and (max-width: 2560px) {
-    height: 114px;
+  @include media-queries(1440px, 2560px) {
+    @include dimensions(114px, auto);
   }
 
   .footer__container {
     @include column;
-    width: 100%;
+    @include dimensions(auto, 100%);
     gap: $gap-7;
-    @media screen and (min-width: 768px) {
+    @include media-query(768px) {
       gap: 16px;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
     }
 
-    @media screen and (min-width: 1440px) and (max-width: 2560px) {
+    @include media-queries(1440px, 2560px) {
       // footer elements inversion
       flex-direction: row-reverse;
       justify-content: flex-start;
@@ -44,49 +44,46 @@
     .footer__logo__container {
       display: flex;
       justify-content: flex-start;
-      width: 138px;
-
+      @include dimensions(auto, 138px);
       .footer__logo {
         // logo image color inversion, black to white
         filter: invert(1);
-        width: 75%;
-        height: 100%;
+        @include dimensions(100%, 75%);
 
-        @media screen and (min-width: 768px) {
-          width: 90%;
+        @include media-query(768px) {
+          @include dimensions(auto, 90%);
         }
       }
     }
 
     .footer__links__container {
-      display: flex;
-      flex-direction: column;
+      @include column;
       list-style: none;
       gap: $gap-7;
 
-      @media screen and (min-width: 768px) {
+      @include media-query(768px) {
         flex-direction: row;
         align-items: center;
-        width: 100%;
         justify-content: space-around;
+        @include dimensions(auto, 100%);
       }
-      @media screen and (min-width: 1024px) {
-        width: min-content;
+      @include media-query(1024px) {
+        @include dimensions(auto, min-content);
       }
     }
   }
   .footer__link-group {
     @include column;
     gap: $gap-7;
-    @media screen and (min-width: 768px) {
+    @include media-query(768px) {
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
-      width: 100%;
+      @include dimensions(auto, 100%);
       // preventing passage to the next line of footer links
       text-wrap: nowrap;
     }
-    @media screen and (min-width: 1024px) {
+    @include media-query(1024px) {
       justify-content: flex-start;
     }
   }
@@ -98,8 +95,8 @@
         font-weight: $medium-font-weight;
 
         .footer__text {
-          @media screen and (min-width: 1440px) and (max-width: 2560px) {
-            width: 168px;
+          @include media-queries(1440px, 2560px) {
+            @include dimensions(auto, 168px);
           }
         }
       }
@@ -117,13 +114,12 @@
 
       .footer__icon {
         display: flex;
-        width: 11.918px;
-        height: 13px;
+        @include dimensions(13px, 11.918px);
         font-size: $xs-font-size;
       }
       .footer__text {
-        @media screen and (min-width: 1440px) and (max-width: 2560px) {
-          width: 130px;
+        @include media-queries(1440px, 2560px) {
+          @include dimensions(auto, 130px);
         }
       }
     }

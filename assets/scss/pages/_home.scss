@@ -18,7 +18,7 @@
   text-align: center;
   background-color: $grey-bg;
 
-  @media screen and (min-width: 1024px) {
+  @include media-query(1024px) {
     gap: 18px;
     padding: $p-section-l;
   }
@@ -27,11 +27,11 @@
     font-size: $h1-font-size;
     padding: 12px 24px;
 
-    @media screen and (min-width: 768px) {
+    @include media-query(768px) {
       font-size: $h1-font-size-tablet;
     }
 
-    @media screen and (min-width: 1024px) {
+    @include media-query(1024px) {
       font-size: $h1-font-size-desktop;
       padding: 0;
       margin-bottom: $m-3;
@@ -44,7 +44,7 @@
     font-weight: $thin-font-weight;
     margin-bottom: $m-1;
 
-    @media screen and (min-width: 1024px) {
+    @include media-query(1024px) {
       margin-bottom: $m-3;
     }
   }
@@ -56,14 +56,14 @@
   padding: $p-section-s;
   background-color: $base-color;
 
-  @media screen and (min-width: 768px) {
+  @include media-query(768px) {
     @include center-element;
     padding: $p-section-m;
   }
-  @media screen and (min-width: 1024px) {
+  @include media-query(1024px) {
     align-items: flex-start;
   }
-  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+  @include media-queries(1440px, 2560px) {
     padding: 50px 180px;
   }
 
@@ -73,29 +73,46 @@
     padding: 0;
     list-style: none;
 
-    @media screen and (min-width: 768px) {
-      width: 100%;
+    @include media-query(768px) {
+      @include dimensions(auto, 100%);
     }
-    @media screen and (min-width: 1024px) {
+    @include media-query(1024px) {
       flex-direction: row;
     }
   }
 }
 
 // relative and absolute position to put the element "number" on the step card
-.steps-container__step.step {
+.step {
   position: relative;
   display: flex;
   align-items: center;
-  height: 73px;
+  @include dimensions(73px, auto);
   margin-left: 12px;
   padding: 24px 36px;
+  cursor: pointer;
   border-radius: $border-radius-m;
   background: $base-color;
   @include box-shadow-card;
 
-  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+  // Change the color of the icon when the step is active or hovered
+  &:active .step__content__icon,
+  &:hover .step__content__icon {
+    color: $primary;
+    // Add a transition for smooth color change grey to purple
+    transition: color 0.2s ease;
+  }
+
+  @include media-queries(1440px, 2560px) {
     text-wrap: nowrap;
+  }
+
+  // Change the color of the icon when the step is active or hovered
+  .step:active .step__content__icon,
+  .step:hover .step__content__icon {
+    color: $primary;
+    // Add a transition for smooth color change grey to purple
+    transition: color 0.2s ease;
   }
 
   // element "number"
@@ -103,8 +120,7 @@
     position: absolute;
     left: -12px;
     @include center-element;
-    width: 24px;
-    height: 24px;
+    @include dimensions(24px, 24px);
     font-size: $xs-font-size;
     background-color: $primary;
     border-radius: 50%;
@@ -114,7 +130,7 @@
   .step__content {
     display: flex;
     gap: $gap-2;
-    height: 100%;
+    @include dimensions(100%, auto);
     align-items: center;
 
     .step__content__icon {
@@ -122,16 +138,8 @@
       line-height: 1.15;
       font-size: $l-font-size;
       color: $grey-3;
-
-      &:active {
-        color: $primary;
-      }
-
-      @media screen and (min-width: 1024px) {
-        &:hover {
-          color: $primary;
-        }
-      }
+      // Add a transition for smooth color change purple to grey
+      transition: color 0.2s ease;
     }
 
     .step__content__text {
@@ -140,22 +148,30 @@
   }
 }
 
+// Change the color of the icon when the step is active or hovered
+.step:active .step__content__icon,
+.step:hover .step__content__icon {
+  color: $primary;
+  // Add a transition for smooth color change grey to purple
+  transition: color 0.2s ease;
+}
+
 .app-restaurants {
   @include column;
   gap: $gap-2;
   padding: $p-section-s;
   background: $grey-bg;
 
-  @media screen and (min-width: 768px) {
+  @include media-query(768px) {
     padding: $p-section-m;
     align-items: center;
     gap: 28px;
   }
-  @media screen and (min-width: 1024px) {
+  @include media-query(1024px) {
     align-items: flex-start;
   }
 
-  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+  @include media-queries(1440px, 2560px) {
     padding: $p-section-l;
   }
 
@@ -163,16 +179,16 @@
     @include column;
     gap: $gap-3;
 
-    @media screen and (min-width: 768px) {
+    @include media-query(768px) {
       width: 80%;
       gap: 34px;
     }
 
-    @media screen and (min-width: 1024px) {
+    @include media-query(1024px) {
       flex-direction: row;
       flex-wrap: wrap;
       gap: 50px;
-      width: 100%;
+      @include dimensions(auto, 100%);
       justify-content: space-between;
     }
   }
@@ -182,14 +198,14 @@
     @include box-shadow-card;
     border-radius: $border-radius-s;
 
-    @media screen and (min-width: 1024px) {
+    @include media-query(1024px) {
       // adjustment of restaurants card size in % with padding included
-      width: calc(50% - 50px);
+      @include dimensions(auto, calc(50% - 50px));
     }
 
-    @media screen and (min-width: 1440px) and (max-width: 2560px) {
+    @include media-queries(1440px, 2560px) {
       // switching to px to give a final size
-      width: 490px;
+      @include dimensions(auto, 490px);
     }
 
     a {
@@ -203,26 +219,25 @@
 // relative and absolute position to put the card "Nouveau" on the restaurant card
 .card__img {
   position: relative;
-  height: 170px;
+  @include dimensions(170px, auto);
   background-color: $grey-2;
   border-top-left-radius: $border-radius-s;
   border-top-right-radius: $border-radius-s;
   overflow: hidden;
 
-  @media screen and (min-width: 768px) {
-    height: 200px;
+  @include media-query(768px) {
+    @include dimensions(200px, auto);
   }
 
-  @media screen and (min-width: 1440px) and (max-width: 2560px) {
-    height: 231px;
+  @include media-queries(1440px, 2560px) {
+    @include dimensions(231px, auto);
   }
 
   // image adaptation in relation to its parent while preserving its ratio with object-fit: cover
   img {
     object-fit: cover;
     object-position: center;
-    height: 100%;
-    width: 100%;
+    @include dimensions(100%, 100%);
     border-top-left-radius: $border-radius-s;
     border-top-right-radius: $border-radius-s;
   }
@@ -231,8 +246,7 @@
   .card__img__badge {
     position: absolute;
     @include center-element;
-    width: 80px;
-    height: 29px;
+    @include dimensions(29px, 80px);
     top: 12px;
     right: 12px;
     font-weight: 500;
@@ -246,14 +260,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  @include dimensions(auto, 100%);
   padding: $p-3;
   gap: $gap-8;
 
   .card__body__header {
     @include column;
-    height: 100%;
-    width: 80%;
+    @include dimensions(100%, 80%);
     gap: $gap-8;
     h3 {
       font-size: $h3-font-size;

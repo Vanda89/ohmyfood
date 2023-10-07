@@ -15,23 +15,35 @@
 
   .header__logo__container {
     @include center-element;
-    height: 63px;
+    @include dimensions(63px, auto);
     background-color: $base-color;
     box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
 
-    @media screen and (min-width: 768px) {
+    @include media-query(768px) {
       height: 75px;
     }
 
-    @media screen and (min-width: 1024px) {
+    @include media-query(1024px) {
       height: 96px;
     }
 
     .header__logo {
-      width: 162px;
-      height: 44px;
-      @media screen and (min-width: 1024px) {
-        width: 200px;
+      @include dimensions(44px, 162px);
+
+      @include media-query(1024px) {
+        @include dimensions(auto, 200px);
+      }
+    }
+    .header__logo-desktop {
+      display: none;
+
+      @include media-query(1024px) {
+        display: block;
+      }
+    }
+    .header__logo-mobile {
+      @include media-query(1024px) {
+        display: none;
       }
     }
   }
@@ -40,8 +52,9 @@
 // icon for the homepage
 .header__location__container {
   @include center-element;
-  height: 50px;
+  @include dimensions(50px, auto);
   gap: $gap-4;
+  cursor: pointer;
   font-family: $base-font-family;
   font-weight: $medium-font-weight;
   color: $grey-1;
@@ -53,7 +66,7 @@
   // absolute position to let the logo be centered in the header
   position: absolute;
   left: 17px;
-  width: 30px;
+  @include dimensions(auto, 30px);
   color: $grey-1;
   .header__back-arrow-icon {
     font-size: 25px;

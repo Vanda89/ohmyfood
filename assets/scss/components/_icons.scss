@@ -10,10 +10,8 @@
 @import "../utils/mixins";
 
 .heart__icons {
-  display: flex;
-  justify-content: center;
-  width: 20%;
-  height: 100%;
+  @include center-element;
+  @include dimensions(100%, 20%);
 
   .heart__icon {
     font-size: 21px;
@@ -26,7 +24,7 @@
 
   .heart__icon-full {
     position: absolute;
-    background: $icon-gradient;
+    @include icon-style;
     color: transparent;
     // added background-clip and text-fill-color properties to have an icon with a gradient background
     background-clip: text;

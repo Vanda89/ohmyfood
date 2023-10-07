@@ -12,25 +12,32 @@
 // button for the home page section app-introduction and for the menu pages form
 .btn {
   @include center-element;
-  height: 50px;
+  @include dimensions(50px, auto);
   margin-bottom: 27px;
-  background: $button-gradient;
-  @include box-shadow-btn;
+  cursor: pointer;
+  @include btn-style;
   border: none;
   border-radius: $border-radius-l;
 
+  &:active,
+  &:hover {
+    @include btn-hover-style;
+  }
+
   // Home page
   &.btn-large {
-    width: 218px;
-    @media screen and (min-width: 1024px) {
+    @include dimensions(50px, 218px);
+
+    @include media-query(1024px) {
       margin: 0;
     }
   }
 
   // Menu page
   &.btn-medium {
-    width: 186px;
-    @media screen and (min-width: 768px) {
+    @include dimensions(50px, 186px);
+
+    @include media-query(768px) {
       margin-bottom: 40px;
     }
   }

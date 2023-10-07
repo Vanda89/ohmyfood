@@ -17,11 +17,14 @@
 
 // Restaurant photo adjustment in background
 .menu__img {
-  width: 100%;
-  height: 60vh;
+  @include dimensions(60vh, 100%);
   background-color: $grey-2;
   background-size: cover;
   background-position: center;
+  @include media-queries(1440px, 2560px) {
+    @include dimensions(490px, 100%);
+  }
+
   // Hiding the original image
   img {
     display: none;
@@ -47,14 +50,14 @@
 
 .menu__body {
   @include column;
-  width: 100%;
+  @include dimensions(auto, 100%);
   gap: $gap-1;
   margin-top: -48px;
   background-color: $grey-bg;
   border-radius: 40px;
 
-  @media screen and (min-width: 1440px) and (max-width: 2560px) {
-    width: 75%;
+  @include media-queries(1440px, 2560px) {
+    @include dimensions(auto, 75%);
   }
 }
 
@@ -64,12 +67,12 @@
   align-items: center;
   padding: 19px 17px 0 17px;
 
-  @media screen and (min-width: 768px) {
+  @include media-query(768px) {
     justify-content: center;
     gap: 24px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include media-query(1024px) {
     padding: 0;
     padding-top: 51px;
   }
@@ -80,8 +83,8 @@
     font-size: $h1-menu-font-size;
   }
   .menu__icons {
-    @media screen and (min-width: 768px) {
-      width: auto;
+    @include media-query(768px) {
+      @include dimensions(auto, auto);
     }
   }
 }
@@ -91,10 +94,10 @@
   align-items: center;
   gap: $gap-1;
   padding: $p-4;
-  @media screen and (min-width: 768px) {
+  @include media-query(768px) {
     padding: 0 150px;
   }
-  @media screen and (min-width: 1440px) and (max-width: 2560px) {
+  @include media-queries(1440px, 2560px) {
     padding: 0 220px;
   }
 
@@ -118,33 +121,13 @@
 // Animation definitions for menu sections and the order button
 
 /* Fade-in animation for the entries section */
-@keyframes fade-in-1 {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@include keyframes(fade-in-1);
 /* Fade-in animation for the dishes section */
-@keyframes fade-in-2 {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@include keyframes(fade-in-2);
 /* Fade-in animation for the desserts section */
-@keyframes fade-in-3 {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@include keyframes(fade-in-3);
 /* Fade-in animation for the order button */
-@keyframes fade-in-4 {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@include keyframes(fade-in-4);
 
 // Applying animations to menu elements
 .menu__entries-section {
@@ -165,7 +148,7 @@
 .menu__section__header {
   @include column;
   justify-content: space-between;
-  height: 27px;
+  @include dimensions(27px, auto);
 
   .menu__section__title {
     font-size: $base-font-size;
@@ -175,7 +158,7 @@
 
   // section title underline
   .menu__section__hr {
-    width: 36px;
+    @include dimensions(auto, 36px);
     padding: 2px;
     border: none;
     background-color: $tertiary;
@@ -186,8 +169,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 69px;
-  width: 100%;
+  @include dimensions(69px, 100%);
+  cursor: pointer;
   background: $base-color;
   border-radius: $border-radius-m;
   @include box-shadow-card;
@@ -201,7 +184,7 @@
 
   .dish-card__description {
     @include column;
-    width: 100%;
+    @include dimensions(auto, 100%);
     // Cropping long card text
     @include ellipsis;
     gap: $gap-8;
@@ -231,9 +214,9 @@
 
 // Base styles for the selected button and his icon
 .dish-card__btn.btn-selected {
-  height: 100%;
-  width: 0;
+  @include dimensions(100%, 0);
   padding: 0;
+  cursor: pointer;
   background-color: $tertiary;
   color: $base-color;
   border: none;
@@ -260,7 +243,7 @@
 .dish-card__body:active + .btn-selected,
 .dish-card__body:hover + .btn-selected {
   // Expand button width for a sliding effect
-  width: 59px;
+  @include dimensions(100%, 59px);
   // Smooth transition of button width
   transition: width 0.4s ease;
 
@@ -275,8 +258,17 @@
 }
 
 // Same styles and effect when the button is hovered
+.btn-selected:active {
+  @include dimensions(100%, 0);
+
+  .icon-selected {
+    opacity: 0;
+    font-size: 0px;
+  }
+}
+// Same styles and effect when the button is hovered
 .btn-selected:hover {
-  width: 59px;
+  @include dimensions(100%, 59px);
 
   .icon-selected {
     opacity: 1;

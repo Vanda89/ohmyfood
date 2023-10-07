@@ -266,13 +266,20 @@ template {
   align-items: center;
   justify-content: center;
   height: 50px;
+  width: auto;
   margin-bottom: 27px;
-  background: linear-gradient(355deg, #9356dc -15.2%, #ff79da 90.74%);
+  cursor: pointer;
+  background: linear-gradient(to top, #9356dc -11.44%, #ff79da 123.93%);
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: 25px;
 }
+.btn:active, .btn:hover {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%), linear-gradient(to top, #9356dc -11.44%, #ff79da 123.93%);
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.35);
+}
 .btn.btn-large {
+  height: 50px;
   width: 218px;
 }
 @media screen and (min-width: 1024px) {
@@ -281,6 +288,7 @@ template {
   }
 }
 .btn.btn-medium {
+  height: 50px;
   width: 186px;
 }
 @media screen and (min-width: 768px) {
@@ -298,9 +306,10 @@ template {
 
 .heart__icons {
   display: flex;
+  align-items: center;
   justify-content: center;
-  width: 20%;
   height: 100%;
+  width: 20%;
 }
 .heart__icons .heart__icon {
   font-size: 21px;
@@ -383,6 +392,7 @@ a {
   align-items: center;
   justify-content: center;
   height: 63px;
+  width: auto;
   background-color: #fff;
   box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
 }
@@ -397,12 +407,26 @@ a {
   }
 }
 .app-header .header__logo__container .header__logo {
-  width: 162px;
   height: 44px;
+  width: 162px;
 }
 @media screen and (min-width: 1024px) {
   .app-header .header__logo__container .header__logo {
+    height: auto;
     width: 200px;
+  }
+}
+.app-header .header__logo__container .header__logo-desktop {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .app-header .header__logo__container .header__logo-desktop {
+    display: block;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .app-header .header__logo__container .header__logo-mobile {
+    display: none;
   }
 }
 
@@ -411,7 +435,9 @@ a {
   align-items: center;
   justify-content: center;
   height: 50px;
+  width: auto;
   gap: 17px;
+  cursor: pointer;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: #353535;
@@ -421,6 +447,7 @@ a {
 .header__back-arrow {
   position: absolute;
   left: 17px;
+  height: auto;
   width: 30px;
   color: #353535;
 }
@@ -444,11 +471,13 @@ a {
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
   .app-footer {
     height: 114px;
+    width: auto;
   }
 }
 .app-footer .footer__container {
   display: flex;
   flex-direction: column;
+  height: auto;
   width: 100%;
   gap: 7px;
 }
@@ -469,15 +498,17 @@ a {
 .app-footer .footer__container .footer__logo__container {
   display: flex;
   justify-content: flex-start;
+  height: auto;
   width: 138px;
 }
 .app-footer .footer__container .footer__logo__container .footer__logo {
   filter: invert(1);
-  width: 75%;
   height: 100%;
+  width: 75%;
 }
 @media screen and (min-width: 768px) {
   .app-footer .footer__container .footer__logo__container .footer__logo {
+    height: auto;
     width: 90%;
   }
 }
@@ -491,12 +522,14 @@ a {
   .app-footer .footer__container .footer__links__container {
     flex-direction: row;
     align-items: center;
-    width: 100%;
     justify-content: space-around;
+    height: auto;
+    width: 100%;
   }
 }
 @media screen and (min-width: 1024px) {
   .app-footer .footer__container .footer__links__container {
+    height: auto;
     width: min-content;
   }
 }
@@ -510,6 +543,7 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    height: auto;
     width: 100%;
     text-wrap: nowrap;
   }
@@ -524,6 +558,7 @@ a {
 }
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
   .app-footer .footer__link-iconed-group .footer__link .footer__link-inner .footer__text {
+    height: auto;
     width: 168px;
   }
 }
@@ -537,12 +572,13 @@ a {
 }
 .app-footer .footer__link .footer__link-inner .footer__icon {
   display: flex;
-  width: 11.918px;
   height: 13px;
+  width: 11.918px;
   font-size: 0.875rem;
 }
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
   .app-footer .footer__link .footer__link-inner .footer__text {
+    height: auto;
     width: 130px;
   }
 }
@@ -624,6 +660,7 @@ a {
 }
 @media screen and (min-width: 768px) {
   .app-steps .app-steps__steps-container {
+    height: auto;
     width: 100%;
   }
 }
@@ -633,57 +670,68 @@ a {
   }
 }
 
-.steps-container__step.step {
+.step {
   position: relative;
   display: flex;
   align-items: center;
   height: 73px;
+  width: auto;
   margin-left: 12px;
   padding: 24px 36px;
+  cursor: pointer;
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
 }
+.step:active .step__content__icon, .step:hover .step__content__icon {
+  color: #9356dc;
+  transition: color 0.2s ease;
+}
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
-  .steps-container__step.step {
+  .step {
     text-wrap: nowrap;
   }
 }
-.steps-container__step.step .step__number {
+.step .step:active .step__content__icon,
+.step .step:hover .step__content__icon {
+  color: #9356dc;
+  transition: color 0.2s ease;
+}
+.step .step__number {
   position: absolute;
   left: -12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
   height: 24px;
+  width: 24px;
   font-size: 0.875rem;
   background-color: #9356dc;
   border-radius: 50%;
   color: #fff;
 }
-.steps-container__step.step .step__content {
+.step .step__content {
   display: flex;
   gap: 25px;
   height: 100%;
+  width: auto;
   align-items: center;
 }
-.steps-container__step.step .step__content .step__content__icon {
+.step .step__content .step__content__icon {
   align-self: flex-start;
   line-height: 1.15;
   font-size: 1.125rem;
   color: #7e7e7e;
+  transition: color 0.2s ease;
 }
-.steps-container__step.step .step__content .step__content__icon:active {
-  color: #9356dc;
-}
-@media screen and (min-width: 1024px) {
-  .steps-container__step.step .step__content .step__content__icon:hover {
-    color: #9356dc;
-  }
-}
-.steps-container__step.step .step__content .step__content__text {
+.step .step__content .step__content__text {
   font-weight: 500;
+}
+
+.step:active .step__content__icon,
+.step:hover .step__content__icon {
+  color: #9356dc;
+  transition: color 0.2s ease;
 }
 
 .app-restaurants {
@@ -726,6 +774,7 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 50px;
+    height: auto;
     width: 100%;
     justify-content: space-between;
   }
@@ -738,11 +787,13 @@ a {
 }
 @media screen and (min-width: 1024px) {
   .app-restaurants .restaurant-card {
+    height: auto;
     width: calc(50% - 50px);
   }
 }
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
   .app-restaurants .restaurant-card {
+    height: auto;
     width: 490px;
   }
 }
@@ -756,6 +807,7 @@ a {
 .card__img {
   position: relative;
   height: 170px;
+  width: auto;
   background-color: #eaeaea;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -764,11 +816,13 @@ a {
 @media screen and (min-width: 768px) {
   .card__img {
     height: 200px;
+    width: auto;
   }
 }
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
   .card__img {
     height: 231px;
+    width: auto;
   }
 }
 .card__img img {
@@ -784,8 +838,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
   height: 29px;
+  width: 80px;
   top: 12px;
   right: 12px;
   font-weight: 500;
@@ -798,6 +852,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: auto;
   width: 100%;
   padding: 15px;
   gap: 5px;
@@ -824,11 +879,17 @@ a {
 }
 
 .menu__img {
-  width: 100%;
   height: 60vh;
+  width: 100%;
   background-color: #eaeaea;
   background-size: cover;
   background-position: center;
+}
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+  .menu__img {
+    height: 490px;
+    width: 100%;
+  }
 }
 .menu__img img {
   display: none;
@@ -853,6 +914,7 @@ a {
 .menu__body {
   display: flex;
   flex-direction: column;
+  height: auto;
   width: 100%;
   gap: 40px;
   margin-top: -48px;
@@ -861,6 +923,7 @@ a {
 }
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
   .menu__body {
+    height: auto;
     width: 75%;
   }
 }
@@ -890,6 +953,7 @@ a {
 }
 @media screen and (min-width: 768px) {
   .menu__header .menu__icons {
+    height: auto;
     width: auto;
   }
 }
@@ -976,6 +1040,7 @@ a {
   flex-direction: column;
   justify-content: space-between;
   height: 27px;
+  width: auto;
 }
 .menu__section__header .menu__section__title {
   font-size: 16px;
@@ -983,6 +1048,7 @@ a {
   text-transform: uppercase;
 }
 .menu__section__header .menu__section__hr {
+  height: auto;
   width: 36px;
   padding: 2px;
   border: none;
@@ -995,6 +1061,7 @@ a {
   align-items: center;
   height: 69px;
   width: 100%;
+  cursor: pointer;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
@@ -1009,6 +1076,7 @@ a {
 .dish-card__body .dish-card__description {
   display: flex;
   flex-direction: column;
+  height: auto;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -1039,6 +1107,7 @@ a {
   height: 100%;
   width: 0;
   padding: 0;
+  cursor: pointer;
   background-color: #99e2d0;
   color: #fff;
   border: none;
@@ -1059,6 +1128,7 @@ a {
 
 .dish-card__body:active + .btn-selected,
 .dish-card__body:hover + .btn-selected {
+  height: 100%;
   width: 59px;
   transition: width 0.4s ease;
 }
@@ -1069,7 +1139,17 @@ a {
   font-size: 20px;
 }
 
+.btn-selected:active {
+  height: 100%;
+  width: 0;
+}
+.btn-selected:active .icon-selected {
+  opacity: 0;
+  font-size: 0px;
+}
+
 .btn-selected:hover {
+  height: 100%;
   width: 59px;
 }
 .btn-selected:hover .icon-selected {
