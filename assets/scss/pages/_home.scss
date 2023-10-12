@@ -82,7 +82,7 @@
   }
 }
 
-// relative and absolute position to put the element "number" on the step card
+// relative and absolute position to put .step__number on the step card
 .step {
   position: relative;
   display: flex;
@@ -95,27 +95,10 @@
   background: $base-color;
   @include box-shadow-card;
 
-  // Change the color of the icon when the step is active or hovered
-  &:active .step__content__icon,
-  &:hover .step__content__icon {
-    color: $primary;
-    // Add a transition for smooth color change grey to purple
-    transition: color 0.2s ease;
-  }
-
   @include media-queries(1440px, 2560px) {
     text-wrap: nowrap;
   }
 
-  // Change the color of the icon when the step is active or hovered
-  .step:active .step__content__icon,
-  .step:hover .step__content__icon {
-    color: $primary;
-    // Add a transition for smooth color change grey to purple
-    transition: color 0.2s ease;
-  }
-
-  // element "number"
   .step__number {
     position: absolute;
     left: -12px;
@@ -138,8 +121,8 @@
       line-height: 1.15;
       font-size: $l-font-size;
       color: $grey-3;
-      // Add a transition for smooth color change purple to grey
-      transition: color 0.2s ease;
+      // smooth color transition to change from purple to grey
+      @include icons-color-transition(color);
     }
 
     .step__content__text {
@@ -152,8 +135,8 @@
 .step:active .step__content__icon,
 .step:hover .step__content__icon {
   color: $primary;
-  // Add a transition for smooth color change grey to purple
-  transition: color 0.2s ease;
+  // smooth color transition to change from grey to purple
+  @include icons-color-transition(color);
 }
 
 .app-restaurants {

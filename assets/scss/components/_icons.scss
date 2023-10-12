@@ -9,26 +9,36 @@
 // Import mixins file
 @import "../utils/mixins";
 
+// Icon for bookmarking a restaurant
 .heart__icons {
   @include center-element;
   @include dimensions(100%, 20%);
 
   .heart__icon {
-    font-size: 21px;
+    font-size: 22px;
+    // Handles the icon color transition
+    @include heart-color-transition;
   }
 
-  // relative and absolute position to put the full heart on the empty heart
+  // Relative and absolute position to overlap the two hearts and handle color transition
   .heart__icon-empty {
     position: relative;
   }
 
   .heart__icon-full {
     position: absolute;
-    @include icon-style;
+    @include icon-full-style;
     color: transparent;
     // added background-clip and text-fill-color properties to have an icon with a gradient background
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    opacity: 0;
+  }
+
+  .heart__icon-full:active,
+  .heart__icon-full:hover {
+    @include heart-color-transition;
+    opacity: 1;
   }
 }

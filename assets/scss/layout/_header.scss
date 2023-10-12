@@ -10,7 +10,6 @@
 @import "../utils/mixins";
 
 .app-header {
-  // confederate .header__back-arrow
   position: relative;
 
   .header__logo__container {
@@ -34,6 +33,7 @@
         @include dimensions(auto, 200px);
       }
     }
+
     .header__logo-desktop {
       display: none;
 
@@ -41,6 +41,7 @@
         display: block;
       }
     }
+
     .header__logo-mobile {
       @include media-query(1024px) {
         display: none;
@@ -49,7 +50,7 @@
   }
 }
 
-// icon for the homepage
+// Home page location icon
 .header__location__container {
   @include center-element;
   @include dimensions(50px, auto);
@@ -61,9 +62,9 @@
   background-color: $grey-2;
 }
 
-// icon for the menu pages
+// Menu pages icon for returning to the home page
 .header__back-arrow {
-  // absolute position to let the logo be centered in the header
+  // Absolute position to leave the logo centered in the header
   position: absolute;
   left: 17px;
   @include dimensions(auto, 30px);

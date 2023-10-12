@@ -261,6 +261,36 @@ template {
   display: none;
 }
 
+/*@mixin transition($properties, $duration, $timing-function, $delay) {
+  transition: $properties $duration $timing-function $delay;
+}
+
+@mixin animation(
+  $name,
+  $duration,
+  $timing-function,
+  $delay,
+  $fill-mode,
+
+) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction
+    $fill-mode $play-state;
+}*/
+/*@mixin transition($properties, $duration, $timing-function, $delay) {
+  transition: $properties $duration $timing-function $delay;
+}
+
+@mixin animation(
+  $name,
+  $duration,
+  $timing-function,
+  $delay,
+  $fill-mode,
+
+) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction
+    $fill-mode $play-state;
+}*/
 .btn {
   display: flex;
   align-items: center;
@@ -304,6 +334,21 @@ template {
   font-weight: 500;
 }
 
+/*@mixin transition($properties, $duration, $timing-function, $delay) {
+  transition: $properties $duration $timing-function $delay;
+}
+
+@mixin animation(
+  $name,
+  $duration,
+  $timing-function,
+  $delay,
+  $fill-mode,
+
+) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction
+    $fill-mode $play-state;
+}*/
 .heart__icons {
   display: flex;
   align-items: center;
@@ -312,7 +357,8 @@ template {
   width: 20%;
 }
 .heart__icons .heart__icon {
-  font-size: 21px;
+  font-size: 22px;
+  transition: opacity 0.75s ease;
 }
 .heart__icons .heart__icon-empty {
   position: relative;
@@ -324,11 +370,33 @@ template {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  opacity: 0;
+}
+.heart__icons .heart__icon-full:active,
+.heart__icons .heart__icon-full:hover {
+  transition: opacity 0.75s ease;
+  opacity: 1;
 }
 
+/*@mixin transition($properties, $duration, $timing-function, $delay) {
+  transition: $properties $duration $timing-function $delay;
+}
+
+@mixin animation(
+  $name,
+  $duration,
+  $timing-function,
+  $delay,
+  $fill-mode,
+
+) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction
+    $fill-mode $play-state;
+}*/
 * {
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -342,14 +410,45 @@ html body {
   min-width: 320px;
   width: 100%;
   color: #000;
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow-y: hidden;
+  animation: toggleLoader 0.5s ease 2s forwards;
+}
+@keyframes toggleLoader {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.app-page .main-container {
+  position: relative;
+  opacity: 0;
+  animation: toggleContainer 2s ease 2s forwards;
+}
+@keyframes toggleContainer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f6f6f6;
 }
 .main-container main {
   font-family: "Roboto", sans-serif;
@@ -384,6 +483,21 @@ a {
   text-decoration: none;
 }
 
+/*@mixin transition($properties, $duration, $timing-function, $delay) {
+  transition: $properties $duration $timing-function $delay;
+}
+
+@mixin animation(
+  $name,
+  $duration,
+  $timing-function,
+  $delay,
+  $fill-mode,
+
+) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction
+    $fill-mode $play-state;
+}*/
 .app-header {
   position: relative;
 }
@@ -455,6 +569,21 @@ a {
   font-size: 25px;
 }
 
+/*@mixin transition($properties, $duration, $timing-function, $delay) {
+  transition: $properties $duration $timing-function $delay;
+}
+
+@mixin animation(
+  $name,
+  $duration,
+  $timing-function,
+  $delay,
+  $fill-mode,
+
+) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction
+    $fill-mode $play-state;
+}*/
 .app-footer {
   display: flex;
   flex-direction: column;
@@ -583,6 +712,119 @@ a {
   }
 }
 
+/*@mixin transition($properties, $duration, $timing-function, $delay) {
+  transition: $properties $duration $timing-function $delay;
+}
+
+@mixin animation(
+  $name,
+  $duration,
+  $timing-function,
+  $delay,
+  $fill-mode,
+
+) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction
+    $fill-mode $play-state;
+}*/
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #f6f6f6;
+}
+.loader span {
+  position: absolute;
+  font-family: "Shrikhand", cursive;
+  font-size: 3rem;
+}
+.loader .loader__circle {
+  position: absolute;
+  border-radius: 50%;
+}
+.loader .loader__circle-purple {
+  border: 6px solid #9356dc;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  width: 340px;
+  height: 340px;
+  animation: rotate-right 3s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+}
+@keyframes rotate-right {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.loader .loader__circle-pink {
+  border: 6px solid #ff79da;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  width: 360px;
+  height: 360px;
+  animation: rotate-left 3s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+}
+@keyframes rotate-left {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.loader .loader__circle-green {
+  border: 6px solid #99e2d0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  width: 380px;
+  height: 380px;
+  animation: rotate-right 3s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+}
+@keyframes rotate-right {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.loader .loader__circle-grey {
+  border: 6px solid #353535;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  width: 400px;
+  height: 400px;
+  animation: rotate-left 3s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+}
+@keyframes rotate-left {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/*@mixin transition($properties, $duration, $timing-function, $delay) {
+  transition: $properties $duration $timing-function $delay;
+}
+
+@mixin animation(
+  $name,
+  $duration,
+  $timing-function,
+  $delay,
+  $fill-mode,
+
+) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction
+    $fill-mode $play-state;
+}*/
 .app-introduction {
   display: flex;
   align-items: center;
@@ -683,19 +925,10 @@ a {
   background: #fff;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
 }
-.step:active .step__content__icon, .step:hover .step__content__icon {
-  color: #9356dc;
-  transition: color 0.2s ease;
-}
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
   .step {
     text-wrap: nowrap;
   }
-}
-.step .step:active .step__content__icon,
-.step .step:hover .step__content__icon {
-  color: #9356dc;
-  transition: color 0.2s ease;
 }
 .step .step__number {
   position: absolute;
@@ -871,11 +1104,27 @@ a {
   font-size: 1.063rem;
 }
 
+/*@mixin transition($properties, $duration, $timing-function, $delay) {
+  transition: $properties $duration $timing-function $delay;
+}
+
+@mixin animation(
+  $name,
+  $duration,
+  $timing-function,
+  $delay,
+  $fill-mode,
+
+) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction
+    $fill-mode $play-state;
+}*/
 .menu {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Roboto", sans-serif;
+  background-color: #fff;
 }
 
 .menu__img {
@@ -917,9 +1166,10 @@ a {
   height: auto;
   width: 100%;
   gap: 40px;
-  margin-top: -48px;
+  margin-top: -40px;
   background-color: #f6f6f6;
-  border-radius: 40px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
 }
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
   .menu__body {
@@ -930,6 +1180,7 @@ a {
 
 .menu__header {
   display: flex;
+  width: auto;
   justify-content: space-between;
   align-items: center;
   padding: 19px 17px 0 17px;
@@ -980,58 +1231,62 @@ a {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.menu__content .menu__order-btn {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Fade-in animation for the entries section */
-@keyframes fade-in-1 {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* Fade-in animation for the dishes section */
-@keyframes fade-in-2 {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* Fade-in animation for the desserts section */
-@keyframes fade-in-3 {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* Fade-in animation for the order button */
-@keyframes fade-in-4 {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .menu__entries-section {
-  animation: fade-in-1 0.5s ease forwards 0.5s;
+  animation: fade-in 1s ease forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .menu__dishes-section {
-  animation: fade-in-2 0.5s ease forwards 1s;
+  animation: fade-in 1s ease forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .menu__desserts-section {
-  animation: fade-in-3 0.5s ease forwards 1.5s;
+  animation: fade-in 1s ease forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .menu__order-btn {
-  animation: fade-in-4 0.5s ease forwards 2s;
+  animation: fade-in 1s ease forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /********************************************/
@@ -1059,35 +1314,35 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 69px;
+  height: 72px;
   width: 100%;
   cursor: pointer;
   background: #fff;
-  border-radius: 20px;
+  border-radius: 15px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .dish-card__body {
   display: flex;
   flex: 1;
-  overflow: hidden;
   padding: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dish-card__body *:not(.dish-card__price) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .dish-card__body .dish-card__description {
   display: flex;
   flex-direction: column;
   height: auto;
   width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   gap: 5px;
   padding-right: 12px;
-}
-.dish-card__body .dish-card__description * {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .dish-card__body .dish-card__description .dish-card__title {
   font-size: 1.125rem;
@@ -1104,8 +1359,6 @@ a {
 }
 
 .dish-card__btn.btn-selected {
-  height: 100%;
-  width: 0;
   padding: 0;
   cursor: pointer;
   background-color: #99e2d0;
@@ -1113,39 +1366,32 @@ a {
   border: none;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  transition: width 0.4s ease;
-  /* Styles for the selected button icon */
+  transition: width 0.3s ease;
+  height: 100%;
+  width: 0;
 }
 .dish-card__btn.btn-selected .icon-selected {
   font-size: 0;
+  width: 0;
   background-color: #fff;
   border-radius: 50%;
   color: #99e2d0;
   line-height: 0.9;
-  transition: opacity 0.4s ease;
   opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.dish-card__body:active + .btn-selected,
-.dish-card__body:hover + .btn-selected {
+.dish-card__body:active + .btn-selected, .dish-card__body:hover + .btn-selected {
+  transition: width 0.3s ease;
   height: 100%;
   width: 59px;
-  transition: width 0.4s ease;
 }
-.dish-card__body:active + .btn-selected .icon-selected,
-.dish-card__body:hover + .btn-selected .icon-selected {
+.dish-card__body:active + .btn-selected .icon-selected, .dish-card__body:hover + .btn-selected .icon-selected {
   opacity: 1;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   font-size: 20px;
-}
-
-.btn-selected:active {
-  height: 100%;
-  width: 0;
-}
-.btn-selected:active .icon-selected {
-  opacity: 0;
-  font-size: 0px;
+  width: 19px;
+  height: 17px;
 }
 
 .btn-selected:hover {
@@ -1154,7 +1400,10 @@ a {
 }
 .btn-selected:hover .icon-selected {
   opacity: 1;
+  transition: opacity 0.3s ease;
   font-size: 20px;
+  width: 19px;
+  height: 17px;
 }
 
 /*# sourceMappingURL=mains.css.map */

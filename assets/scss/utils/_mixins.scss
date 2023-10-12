@@ -1,7 +1,7 @@
 // mixins.scss
 
 // Flex Layout Mixins:
-@mixin center-element() {
+@mixin center-element {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@
 }
 
 // Icons mixins :
-@mixin icon-style {
+@mixin icon-full-style {
   background: linear-gradient(to bottom, #9356dc -5.2%, #ff79da 110.74%);
 }
 
@@ -44,7 +44,6 @@
 }
 
 // Text layout mixin :
-
 @mixin ellipsis {
   white-space: nowrap;
   overflow: hidden;
@@ -66,12 +65,86 @@
 
 // Animation and Transition Mixins:
 
-//Menu pages parts fade-in
-@mixin keyframes($animation-name) {
+// Toggle animation for the loader
+@mixin toggle(
+  $animation-name,
+  $opacity-start-value: 0,
+  $opacity-end-value: 1,
+  $duration,
+  $timing-function: ease,
+  $delay: 2s,
+  $fill-mode: forwards
+) {
   @keyframes #{$animation-name} {
+    0% {
+      opacity: $opacity-start-value;
+    }
+    100% {
+      opacity: $opacity-end-value;
+    }
+  }
+
+  animation: #{$animation-name} $duration $timing-function $delay $fill-mode;
+}
+
+// Home page loader animation
+@mixin rotate(
+  $animation-name,
+  $degrees-start-value,
+  $degrees-end-value,
+  $duration: 3s,
+  $timing-function: cubic-bezier(0.26, 1.36, 0.74, -0.29),
+  $iteration-count: infinite
+) {
+  @keyframes #{$animation-name} {
+    0% {
+      transform: rotate(#{$degrees-start-value}deg);
+    }
+    100% {
+      transform: rotate(#{$degrees-end-value}deg);
+    }
+  }
+
+  animation: #{$animation-name} $duration $timing-function $iteration-count;
+}
+
+//Menu pages parts fade-in
+@mixin fade-in(
+  $animation-name: fade-in,
+  $duration: 1s,
+  $timing-function: ease,
+  $delay,
+  $fill-mode: forwards
+) {
+  @keyframes #{$animation-name} {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
+  animation: #{$animation-name} $duration $timing-function $fill-mode;
+}
+
+// Home page step__content__icon transition
+@mixin icons-color-transition(
+  $transition-name: color,
+  $duration: 0.2s,
+  $timing-function: ease
+) {
+  transition: $transition-name $duration $timing-function;
+}
+
+//Home page and menu pages heart icon
+// Home page step__content__icon transition
+@mixin heart-color-transition(
+  $transition-name: opacity,
+  $duration: 0.75s,
+  $timing-function: ease
+) {
+  transition: $transition-name $duration $timing-function;
 }

@@ -12,6 +12,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -24,14 +25,38 @@ html {
     min-width: 320px;
     width: 100%;
     color: $base-font;
-    overflow-x: hidden;
+    overflow: hidden;
   }
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow-y: hidden;
+  @include toggle(
+    toggleLoader,
+    $opacity-start-value: 1,
+    $opacity-end-value: 0,
+    $duration: 0.5s
+  ); // Start loader with opacity 1
+}
+
+.app-page .main-container {
+  position: relative;
+  opacity: 0;
+  @include toggle(
+    toggleContainer,
+    $duration: 2s
+  ); // Start content with opacity 0
 }
 
 .main-container {
   @include column;
   align-items: center;
-  background-color: $grey-bg;
+
   main {
     font-family: $base-font-family;
   }
@@ -40,6 +65,7 @@ html {
   main,
   footer {
     width: 100%;
+
     @include media-queries(1440px, 2560px) {
       width: 1440px;
       box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.15),

@@ -13,6 +13,7 @@
   @include column;
   align-items: center;
   font-family: $base-font-family;
+  background-color: $base-color;
 }
 
 // Restaurant photo adjustment in background
@@ -21,6 +22,7 @@
   background-color: $grey-2;
   background-size: cover;
   background-position: center;
+
   @include media-queries(1440px, 2560px) {
     @include dimensions(490px, 100%);
   }
@@ -52,9 +54,10 @@
   @include column;
   @include dimensions(auto, 100%);
   gap: $gap-1;
-  margin-top: -48px;
+  margin-top: -40px;
   background-color: $grey-bg;
-  border-radius: 40px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
 
   @include media-queries(1440px, 2560px) {
     @include dimensions(auto, 75%);
@@ -63,6 +66,7 @@
 
 .menu__header {
   display: flex;
+  width: auto;
   justify-content: space-between;
   align-items: center;
   padding: 19px 17px 0 17px;
@@ -94,9 +98,11 @@
   align-items: center;
   gap: $gap-1;
   padding: $p-4;
+
   @include media-query(768px) {
     padding: 0 150px;
   }
+
   @include media-queries(1440px, 2560px) {
     padding: 0 220px;
   }
@@ -105,42 +111,21 @@
   .menu__section {
     @include column;
     gap: $gap-6;
-    // arrival of sections and button gradually
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  .menu__order-btn {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
   }
 }
 
-// Animation definitions for menu sections and the order button
-
-/* Fade-in animation for the entries section */
-@include keyframes(fade-in-1);
-/* Fade-in animation for the dishes section */
-@include keyframes(fade-in-2);
-/* Fade-in animation for the desserts section */
-@include keyframes(fade-in-3);
-/* Fade-in animation for the order button */
-@include keyframes(fade-in-4);
-
-// Applying animations to menu elements
+// Application of fade-in animation to the different parts of menu__content
 .menu__entries-section {
-  animation: fade-in-1 0.5s ease forwards 0.5s;
+  @include fade-in($delay: 1.5s);
 }
 .menu__dishes-section {
-  animation: fade-in-2 0.5s ease forwards 1s;
+  @include fade-in($delay: 2s);
 }
 .menu__desserts-section {
-  animation: fade-in-3 0.5s ease forwards 1.5s;
+  @include fade-in($delay: 2.5s);
 }
 .menu__order-btn {
-  animation: fade-in-4 0.5s ease forwards 2s;
+  @include fade-in($delay: 3s);
 }
 
 /********************************************/
@@ -169,30 +154,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @include dimensions(69px, 100%);
+  @include dimensions(72px, 100%);
   cursor: pointer;
   background: $base-color;
-  border-radius: $border-radius-m;
+  border-radius: $border-radius-s;
   @include box-shadow-card;
+  overflow: hidden;
 }
 
 .dish-card__body {
   display: flex;
   flex: 1;
-  overflow: hidden;
   padding: 15px;
+  @include ellipsis;
+
+  // Mixin to crop the long card texts in excluing .dish-card__price
+  *:not(.dish-card__price) {
+    @include ellipsis;
+  }
 
   .dish-card__description {
     @include column;
     @include dimensions(auto, 100%);
-    // Cropping long card text
-    @include ellipsis;
     gap: $gap-8;
     padding-right: 12px;
-
-    * {
-      @include ellipsis;
-    }
 
     .dish-card__title {
       font-size: $h3-font-size;
@@ -212,9 +197,12 @@
   }
 }
 
-// Base styles for the selected button and his icon
+// Define transition values in variables
+$transition-duration: 0.3s;
+$transition-ease: ease;
+
+// Basic style for the invisibility of the selected button (height: 100%, width: 0px) and its icon (font-size: 0, opacity: 0)
 .dish-card__btn.btn-selected {
-  @include dimensions(100%, 0);
   padding: 0;
   cursor: pointer;
   background-color: $tertiary;
@@ -222,56 +210,56 @@
   border: none;
   border-top-right-radius: $border-radius-m;
   border-bottom-right-radius: $border-radius-m;
-  // Transition width for a sliding effect
-  transition: width 0.4s ease;
 
-  /* Styles for the selected button icon */
+  // Use transition variables
+  transition: width $transition-duration $transition-ease;
+
+  @include dimensions(100%, 0);
+
   .icon-selected {
     font-size: 0;
+    width: 0;
     background-color: $base-color;
     border-radius: 50%;
     color: $tertiary;
     line-height: 0.9;
-    // Transition opacity for icon appearance
-    transition: opacity 0.4s ease;
-    // Hide the icon when not in use
     opacity: 0;
+
+    // Use transition variables
+    transition: opacity $transition-duration $transition-ease;
   }
 }
 
-// Styles for the selected button and his icon when the dish card is active or hovered
-.dish-card__body:active + .btn-selected,
-.dish-card__body:hover + .btn-selected {
-  // Expand button width for a sliding effect
-  @include dimensions(100%, 59px);
-  // Smooth transition of button width
-  transition: width 0.4s ease;
+// Specific style for the selected button and its icon when a user interacts with the dish card
+.dish-card__body {
+  &:active + .btn-selected,
+  &:hover + .btn-selected {
+    transition: width $transition-duration $transition-ease;
 
-  .icon-selected {
-    // Make the icon visible
-    opacity: 1;
-    // Smooth transition of icon opacity
-    transition: opacity 0.4s ease;
-    // Increase icon size
-    font-size: 20px;
+    // Expand button width
+    @include dimensions(100%, 59px);
+
+    .icon-selected {
+      // Icon visibility
+      opacity: 1;
+      transition: opacity $transition-duration $transition-ease;
+      // Increase icon size
+      font-size: 20px;
+      width: 19px;
+      height: 17px;
+    }
   }
 }
 
-// Same styles and effect when the button is hovered
-.btn-selected:active {
-  @include dimensions(100%, 0);
-
-  .icon-selected {
-    opacity: 0;
-    font-size: 0px;
-  }
-}
-// Same styles and effect when the button is hovered
+// Same style and effect when the button is hovered
 .btn-selected:hover {
   @include dimensions(100%, 59px);
 
   .icon-selected {
     opacity: 1;
+    transition: opacity $transition-duration $transition-ease;
     font-size: 20px;
+    width: 19px;
+    height: 17px;
   }
 }

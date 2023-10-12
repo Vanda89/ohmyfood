@@ -1,0 +1,72 @@
+// Import mixins file
+@import "../utils/mixins";
+
+.loader {
+  @include center-element;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: $grey-bg;
+
+  span {
+    position: absolute;
+    font-family: $title-font-family;
+    font-size: 3rem;
+  }
+
+  .loader__circle {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .loader__circle-purple {
+    border: 6px solid #9356dc;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    width: 340px;
+    height: 340px;
+    @include rotate(
+      rotate-right,
+      $degrees-start-value: -360,
+      $degrees-end-value: 0
+    );
+  }
+  .loader__circle-pink {
+    border: 6px solid #ff79da;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    width: 360px;
+    height: 360px;
+    @include rotate(
+      rotate-left,
+      $degrees-start-value: 360,
+      $degrees-end-value: 0
+    );
+  }
+
+  .loader__circle-green {
+    border: 6px solid #99e2d0;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    width: 380px;
+    height: 380px;
+    @include rotate(
+      rotate-right,
+      $degrees-start-value: -360,
+      $degrees-end-value: 0
+    );
+  }
+
+  .loader__circle-grey {
+    border: 6px solid #353535;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    width: 400px;
+    height: 400px;
+    @include rotate(
+      rotate-left,
+      $degrees-start-value: 360,
+      $degrees-end-value: 0
+    );
+  }
+}
