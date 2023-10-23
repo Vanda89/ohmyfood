@@ -65,15 +65,13 @@
 }
 
 .menu__header {
-  display: flex;
+  @include center-element;
   width: auto;
-  justify-content: space-between;
-  align-items: center;
+  gap: $gap-5;
   padding: 19px 17px 0 17px;
 
   @include media-query(768px) {
-    justify-content: center;
-    gap: 24px;
+    gap: $gap-2;
   }
 
   @include media-query(1024px) {
@@ -97,7 +95,7 @@
   @include column;
   align-items: center;
   gap: $gap-1;
-  padding: $p-4;
+  padding: $p-3;
 
   @include media-query(768px) {
     padding: 0 150px;
@@ -111,21 +109,26 @@
   .menu__section {
     @include column;
     gap: $gap-6;
+    opacity: 0;
+  }
+
+  .menu__order-btn {
+    opacity: 0;
   }
 }
 
 // Application of fade-in animation to the different parts of menu__content
 .menu__entries-section {
-  @include fade-in($delay: 1.5s);
+  @include fade-in($duration: 0.5s, $delay: 0.25s);
 }
 .menu__dishes-section {
-  @include fade-in($delay: 2s);
+  @include fade-in($duration: 0.5s, $delay: 0.5s);
 }
 .menu__desserts-section {
-  @include fade-in($delay: 2.5s);
+  @include fade-in($duration: 0.5s, $delay: 0.75s);
 }
 .menu__order-btn {
-  @include fade-in($delay: 3s);
+  @include fade-in($duration: 0.5s, $delay: 1s);
 }
 
 /********************************************/
@@ -165,7 +168,8 @@
 .dish-card__body {
   display: flex;
   flex: 1;
-  padding: 15px;
+  @include dimensions(100%, 100%);
+  padding: $p-2;
   @include ellipsis;
 
   // Mixin to crop the long card texts in excluing .dish-card__price
@@ -177,7 +181,7 @@
     @include column;
     @include dimensions(auto, 100%);
     gap: $gap-8;
-    padding-right: 12px;
+    padding-right: $p-3;
 
     .dish-card__title {
       font-size: $h3-font-size;
@@ -197,10 +201,6 @@
   }
 }
 
-// Define transition values in variables
-$transition-duration: 0.3s;
-$transition-ease: ease;
-
 // Basic style for the invisibility of the selected button (height: 100%, width: 0px) and its icon (font-size: 0, opacity: 0)
 .dish-card__btn.btn-selected {
   padding: 0;
@@ -208,12 +208,9 @@ $transition-ease: ease;
   background-color: $tertiary;
   color: $base-color;
   border: none;
-  border-top-right-radius: $border-radius-m;
-  border-bottom-right-radius: $border-radius-m;
-
-  // Use transition variables
-  transition: width $transition-duration $transition-ease;
-
+  border-top-right-radius: $border-radius-s;
+  border-bottom-right-radius: $border-radius-s;
+  @include transition-properties(width);
   @include dimensions(100%, 0);
 
   .icon-selected {
@@ -224,9 +221,7 @@ $transition-ease: ease;
     color: $tertiary;
     line-height: 0.9;
     opacity: 0;
-
-    // Use transition variables
-    transition: opacity $transition-duration $transition-ease;
+    @include transition-properties(opacity);
   }
 }
 
@@ -234,19 +229,17 @@ $transition-ease: ease;
 .dish-card__body {
   &:active + .btn-selected,
   &:hover + .btn-selected {
-    transition: width $transition-duration $transition-ease;
-
+    @include transition-properties(width);
     // Expand button width
     @include dimensions(100%, 59px);
 
     .icon-selected {
       // Icon visibility
       opacity: 1;
-      transition: opacity $transition-duration $transition-ease;
+      @include transition-properties(opacity);
       // Increase icon size
       font-size: 20px;
-      width: 19px;
-      height: 17px;
+      @include dimensions(17px, 19px);
     }
   }
 }
@@ -257,9 +250,8 @@ $transition-ease: ease;
 
   .icon-selected {
     opacity: 1;
-    transition: opacity $transition-duration $transition-ease;
+    @include transition-properties(opacity);
     font-size: 20px;
-    width: 19px;
-    height: 17px;
+    @include dimensions(17px, 19px);
   }
 }

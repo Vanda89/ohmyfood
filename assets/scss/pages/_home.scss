@@ -9,7 +9,7 @@
 // Import mixins file
 @import "../utils/mixins";
 
-//**************************
+/**************************/
 
 .app-introduction {
   @include center-element;
@@ -19,7 +19,7 @@
   background-color: $grey-bg;
 
   @include media-query(1024px) {
-    gap: 18px;
+    gap: $gap-3;
     padding: $p-section-l;
   }
 
@@ -34,7 +34,7 @@
     @include media-query(1024px) {
       font-size: $h1-font-size-desktop;
       padding: 0;
-      margin-bottom: $m-3;
+      margin-bottom: $m-2;
       line-height: 1.25;
     }
   }
@@ -45,10 +45,12 @@
     margin-bottom: $m-1;
 
     @include media-query(1024px) {
-      margin-bottom: $m-3;
+      margin-bottom: $m-2;
     }
   }
 }
+
+/**************************/
 
 .app-steps {
   @include column;
@@ -64,7 +66,7 @@
     align-items: flex-start;
   }
   @include media-queries(1440px, 2560px) {
-    padding: 50px 180px;
+    padding: $p-section-xl;
   }
 
   .app-steps__steps-container {
@@ -92,7 +94,7 @@
   padding: 24px 36px;
   cursor: pointer;
   border-radius: $border-radius-m;
-  background: $base-color;
+  background-color: $grey-bg;
   @include box-shadow-card;
 
   @include media-queries(1440px, 2560px) {
@@ -138,6 +140,8 @@
   // smooth color transition to change from grey to purple
   @include icons-color-transition(color);
 }
+
+/**************************/
 
 .app-restaurants {
   @include column;
@@ -244,7 +248,7 @@
   align-items: center;
   justify-content: space-between;
   @include dimensions(auto, 100%);
-  padding: $p-3;
+  padding: $p-2;
   gap: $gap-8;
 
   .card__body__header {

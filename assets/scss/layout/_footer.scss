@@ -60,7 +60,6 @@
 
     .footer__links__container {
       @include column;
-      list-style: none;
       gap: $gap-7;
 
       @include media-query(768px) {
@@ -76,6 +75,7 @@
   }
   .footer__link-group {
     @include column;
+    list-style: none;
     gap: $gap-7;
 
     @include media-query(768px) {

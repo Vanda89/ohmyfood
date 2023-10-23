@@ -261,36 +261,6 @@ template {
   display: none;
 }
 
-/*@mixin transition($properties, $duration, $timing-function, $delay) {
-  transition: $properties $duration $timing-function $delay;
-}
-
-@mixin animation(
-  $name,
-  $duration,
-  $timing-function,
-  $delay,
-  $fill-mode,
-
-) {
-  animation: $name $duration $timing-function $delay $iteration-count $direction
-    $fill-mode $play-state;
-}*/
-/*@mixin transition($properties, $duration, $timing-function, $delay) {
-  transition: $properties $duration $timing-function $delay;
-}
-
-@mixin animation(
-  $name,
-  $duration,
-  $timing-function,
-  $delay,
-  $fill-mode,
-
-) {
-  animation: $name $duration $timing-function $delay $iteration-count $direction
-    $fill-mode $play-state;
-}*/
 .btn {
   display: flex;
   align-items: center;
@@ -299,8 +269,12 @@ template {
   width: auto;
   margin-bottom: 27px;
   cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
   background: linear-gradient(to top, #9356dc -11.44%, #ff79da 123.93%);
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  color: white;
   border: none;
   border-radius: 25px;
 }
@@ -326,29 +300,7 @@ template {
     margin-bottom: 40px;
   }
 }
-.btn a {
-  text-decoration: none;
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-}
 
-/*@mixin transition($properties, $duration, $timing-function, $delay) {
-  transition: $properties $duration $timing-function $delay;
-}
-
-@mixin animation(
-  $name,
-  $duration,
-  $timing-function,
-  $delay,
-  $fill-mode,
-
-) {
-  animation: $name $duration $timing-function $delay $iteration-count $direction
-    $fill-mode $play-state;
-}*/
 .heart__icons {
   display: flex;
   align-items: center;
@@ -378,21 +330,6 @@ template {
   opacity: 1;
 }
 
-/*@mixin transition($properties, $duration, $timing-function, $delay) {
-  transition: $properties $duration $timing-function $delay;
-}
-
-@mixin animation(
-  $name,
-  $duration,
-  $timing-function,
-  $delay,
-  $fill-mode,
-
-) {
-  animation: $name $duration $timing-function $delay $iteration-count $direction
-    $fill-mode $play-state;
-}*/
 * {
   margin: 0;
   box-sizing: border-box;
@@ -483,21 +420,6 @@ a {
   text-decoration: none;
 }
 
-/*@mixin transition($properties, $duration, $timing-function, $delay) {
-  transition: $properties $duration $timing-function $delay;
-}
-
-@mixin animation(
-  $name,
-  $duration,
-  $timing-function,
-  $delay,
-  $fill-mode,
-
-) {
-  animation: $name $duration $timing-function $delay $iteration-count $direction
-    $fill-mode $play-state;
-}*/
 .app-header {
   position: relative;
 }
@@ -569,21 +491,6 @@ a {
   font-size: 25px;
 }
 
-/*@mixin transition($properties, $duration, $timing-function, $delay) {
-  transition: $properties $duration $timing-function $delay;
-}
-
-@mixin animation(
-  $name,
-  $duration,
-  $timing-function,
-  $delay,
-  $fill-mode,
-
-) {
-  animation: $name $duration $timing-function $delay $iteration-count $direction
-    $fill-mode $play-state;
-}*/
 .app-footer {
   display: flex;
   flex-direction: column;
@@ -644,7 +551,6 @@ a {
 .app-footer .footer__container .footer__links__container {
   display: flex;
   flex-direction: column;
-  list-style: none;
   gap: 7px;
 }
 @media screen and (min-width: 768px) {
@@ -665,6 +571,7 @@ a {
 .app-footer .footer__link-group {
   display: flex;
   flex-direction: column;
+  list-style: none;
   gap: 7px;
 }
 @media screen and (min-width: 768px) {
@@ -712,21 +619,6 @@ a {
   }
 }
 
-/*@mixin transition($properties, $duration, $timing-function, $delay) {
-  transition: $properties $duration $timing-function $delay;
-}
-
-@mixin animation(
-  $name,
-  $duration,
-  $timing-function,
-  $delay,
-  $fill-mode,
-
-) {
-  animation: $name $duration $timing-function $delay $iteration-count $direction
-    $fill-mode $play-state;
-}*/
 .loader {
   display: flex;
   align-items: center;
@@ -810,21 +702,7 @@ a {
   }
 }
 
-/*@mixin transition($properties, $duration, $timing-function, $delay) {
-  transition: $properties $duration $timing-function $delay;
-}
-
-@mixin animation(
-  $name,
-  $duration,
-  $timing-function,
-  $delay,
-  $fill-mode,
-
-) {
-  animation: $name $duration $timing-function $delay $iteration-count $direction
-    $fill-mode $play-state;
-}*/
+/**************************/
 .app-introduction {
   display: flex;
   align-items: center;
@@ -868,6 +746,7 @@ a {
   }
 }
 
+/**************************/
 .app-steps {
   display: flex;
   flex-direction: column;
@@ -922,8 +801,8 @@ a {
   padding: 24px 36px;
   cursor: pointer;
   border-radius: 20px;
-  background: #fff;
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+  background-color: #f6f6f6;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
 }
 @media screen and (min-width: 1440px) and (max-width: 2560px) {
   .step {
@@ -967,6 +846,7 @@ a {
   transition: color 0.2s ease;
 }
 
+/**************************/
 .app-restaurants {
   display: flex;
   flex-direction: column;
@@ -1015,7 +895,7 @@ a {
 .app-restaurants .restaurant-card {
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
   border-radius: 15px;
 }
 @media screen and (min-width: 1024px) {
@@ -1104,21 +984,6 @@ a {
   font-size: 1.063rem;
 }
 
-/*@mixin transition($properties, $duration, $timing-function, $delay) {
-  transition: $properties $duration $timing-function $delay;
-}
-
-@mixin animation(
-  $name,
-  $duration,
-  $timing-function,
-  $delay,
-  $fill-mode,
-
-) {
-  animation: $name $duration $timing-function $delay $iteration-count $direction
-    $fill-mode $play-state;
-}*/
 .menu {
   display: flex;
   flex-direction: column;
@@ -1180,15 +1045,15 @@ a {
 
 .menu__header {
   display: flex;
-  width: auto;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  width: auto;
+  gap: 16px;
   padding: 19px 17px 0 17px;
 }
 @media screen and (min-width: 768px) {
   .menu__header {
-    justify-content: center;
-    gap: 24px;
+    gap: 25px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -1214,7 +1079,7 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  padding: 13px;
+  padding: 12px;
   /******************************************/
 }
 @media screen and (min-width: 768px) {
@@ -1231,10 +1096,14 @@ a {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  opacity: 0;
+}
+.menu__content .menu__order-btn {
+  opacity: 0;
 }
 
 .menu__entries-section {
-  animation: fade-in 1s ease forwards;
+  animation: fade-in 0.5s ease 0.25s forwards;
 }
 @keyframes fade-in {
   from {
@@ -1248,7 +1117,7 @@ a {
 }
 
 .menu__dishes-section {
-  animation: fade-in 1s ease forwards;
+  animation: fade-in 0.5s ease 0.5s forwards;
 }
 @keyframes fade-in {
   from {
@@ -1262,7 +1131,7 @@ a {
 }
 
 .menu__desserts-section {
-  animation: fade-in 1s ease forwards;
+  animation: fade-in 0.5s ease 0.75s forwards;
 }
 @keyframes fade-in {
   from {
@@ -1276,7 +1145,7 @@ a {
 }
 
 .menu__order-btn {
-  animation: fade-in 1s ease forwards;
+  animation: fade-in 0.5s ease 1s forwards;
 }
 @keyframes fade-in {
   from {
@@ -1319,13 +1188,15 @@ a {
   cursor: pointer;
   background: #fff;
   border-radius: 15px;
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
   overflow: hidden;
 }
 
 .dish-card__body {
   display: flex;
   flex: 1;
+  height: 100%;
+  width: 100%;
   padding: 15px;
   white-space: nowrap;
   overflow: hidden;
@@ -1364,8 +1235,8 @@ a {
   background-color: #99e2d0;
   color: #fff;
   border: none;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
   transition: width 0.3s ease;
   height: 100%;
   width: 0;
@@ -1390,8 +1261,8 @@ a {
   opacity: 1;
   transition: opacity 0.3s ease;
   font-size: 20px;
-  width: 19px;
   height: 17px;
+  width: 19px;
 }
 
 .btn-selected:hover {
@@ -1402,8 +1273,8 @@ a {
   opacity: 1;
   transition: opacity 0.3s ease;
   font-size: 20px;
-  width: 19px;
   height: 17px;
+  width: 19px;
 }
 
 /*# sourceMappingURL=mains.css.map */
