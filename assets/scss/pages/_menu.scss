@@ -18,10 +18,14 @@
 
 // Restaurant photo adjustment in background
 .menu__img {
-  @include dimensions(60vh, 100%);
+  @include dimensions(40vh, 100%);
   background-color: $grey-2;
   background-size: cover;
   background-position: center;
+
+  @include media-query(768px) {
+    @include dimensions(60vh, 100%);
+  }
 
   @include media-queries(1440px, 2560px) {
     @include dimensions(490px, 100%);
