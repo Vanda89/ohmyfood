@@ -64,7 +64,7 @@ Vous pouvez maintenant ouvrir le fichier index.html dans votre navigateur pour v
 ## Liens Utiles
 
 - Maquettes sur Figma : <a href="https://www.figma.com/design/SLsyCVmje7eoJYhMbvB15N/Maquettes-Ohmyfood-(mobile-et-desktop)-(Copy)?node-id=0-1&node-type=canvas&t=3POjYIczyS4vd6Vr-0">Lien</a>
-- GitHub Pages - [Voir le site en live](https://vanda89.github.io/ohmyfood) 
+- GitHub Pages - [Voir le site en live](https://vanda89.github.io/P3_ohmyfood/) 
 
 
 
